@@ -10,7 +10,7 @@ namespace core
 {
 	static void print_error(const std::string& additional_info)
 	{
-		std::cout << additional_info << SDL_GetError();
+		std::cout << additional_info << SDL_GetError()<<std::endl;
 	}
 	static void write_error(const std::string& additional_info)
 	{
