@@ -21,15 +21,15 @@ namespace core
 		}
 
 		Vector2& operator=(const Vector2& vec) = default;
-		Vector2& operator+(const Vector2& vec)
+		Vector2 operator+(const Vector2& vec)
 		{
 			return Vector2(x + vec.x, y + vec.y);
 		}
-		Vector2& operator-(const Vector2& vec)
+		Vector2 operator-(const Vector2& vec)
 		{
 			return Vector2(x - vec.x, y - vec.y);
 		}
-		Vector2& operator*(T number)
+		Vector2 operator*(T number)
 		{
 			return Vector2(x * number, y * number);
 		}
