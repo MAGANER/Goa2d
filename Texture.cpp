@@ -1,7 +1,8 @@
 #include"Texture.h"
 using namespace Goat2d::core;
 
-Texture::Texture(const std::string& path, SDL_Renderer* renderer)
+Texture::Texture(const std::string& path, SDL_Renderer* renderer):
+    DrawableObject(renderer)
 {
     //Load image at specified path
     SDL_Surface* loadedSurface = IMG_Load(path.c_str());

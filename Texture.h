@@ -1,13 +1,12 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
-#include"SDL_image.h"
+#include"DrawableObject.h"
 #include"ErrorLogger.h"
-#include"Vector.h"
 namespace Goat2d
 {
 namespace core 
 {
-	class Texture
+	class Texture: public DrawableObject
 	{
 		SDL_Texture* texture = nullptr;
 		bool ok = true;
