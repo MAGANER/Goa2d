@@ -20,6 +20,7 @@ namespace core
 
 		void draw(const Vector2i& position);
 
+		void set_color(const Color& color) { this->color = color; }
 		void update_pos(const Vector2i& new_pos)
 		{
 			pos = new_pos;
