@@ -1,41 +1,16 @@
 #ifndef COLOR_H
 #define COLOR_H
+#include"SDL.h"
 namespace Goat2d
 {
 namespace core
 {
-	typedef unsigned short ushort;
-	struct Color
-	{
-		ushort r, g, b, a;
-		Color()
-		{
-			r = 0;
-			g = 0;
-			b = 0;
-			a = 0;
-		}
-		Color(ushort r, ushort g, ushort b, ushort a)
-		{
-			this->r = r;
-			this->g = g;
-			this->b = b;
-			this->a = a;
-		}
-		Color(const Color& color)
-		{
-			this->r = color.r;
-			this->g = color.g;
-			this->b = color.b;
-			this->a = color.a;
-		}
-		~Color(){}
+	typedef SDL_Color Color;
 
-		Color operator=(const Color& _color)
-		{
-			return Color(_color);
-		}
-};
+	static inline Color make_color(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+	{
+		return Color{.r=r,.g=g,.b=b,.a=a};
+	}
 };
 };
 #endif
