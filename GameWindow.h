@@ -1,8 +1,6 @@
 #ifndef GAME_WINDOW_H
 #define GAME_WINDOW_H
-#include"ErrorLogger.h"
-#include"Color.h"
-#include"Vector.h"
+#include"SceneManager.h"
 namespace Goat2d
 {
 namespace core
@@ -18,9 +16,11 @@ namespace core
 		Color background_color;
 		bool _print_error, _write_error;
 		Vector2i win_pos, win_size;
+		int FPS;
 
 		GameWindowSetting()
 		{
+			//create default game window settings
 			SDL_subsystems = SDL_INIT_VIDEO;
 			win_size = Vector2i(720, 640);
 			title = "Goat2d";
@@ -28,6 +28,7 @@ namespace core
 			_print_error = true;
 			_write_error = true;
 			win_pos = Vector2i(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+			FPS = 30;
 		}
 		GameWindowSetting(const GameWindowSetting& setting)
 		{
@@ -38,17 +39,18 @@ namespace core
 			_print_error = setting._print_error;
 			_write_error = setting._write_error;
 			win_pos = setting.win_pos;
+			FPS = setting.FPS;
 		}
 		GameWindowSetting(int SDL_subsystems,
 						  const Vector2i& win_size)
 		{
 			this->SDL_subsystems = SDL_subsystems;
 			this->win_size = win_size;
-			std::cout << win_size.x << " " << win_size.y << std::endl;
 			background_color = Color(0, 0, 0, 255);
 			_print_error = true;
 			_write_error = true;
 			win_pos = Vector2i(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+			FPS = 30;
 		}
 		GameWindowSetting(int SDL_subsystems,
 						  const Vector2i& win_size,
@@ -56,7 +58,8 @@ namespace core
 						  const std::string& title,
 						  const Color& background_color,
 						  bool _print_error,
-						  bool _write_error)
+						  bool _write_error,
+						  int FPS)
 		{
 			this->SDL_subsystems = SDL_subsystems;
 			this->win_size = win_size;
@@ -64,21 +67,34 @@ namespace core
 			this->_print_error = _print_error;
 			this->_write_error = _write_error;
 			this->win_pos = win_pos;
+			this->FPS = FPS;
 		}
 		~GameWindowSetting(){}
 
 	};
 
-	class GameWindow
+	class GameWindow: public framework::SceneManager
 	{
 		//The window we'll be rendering to
 		SDL_Window* window = nullptr;
 
-		//The surface contained by the window
-		SDL_Surface* screenSurface = nullptr;
+		//The window renderer
+		SDL_Renderer* renderer = nullptr;
+		
 
-		bool ok = false;
+		//clearing color
+		Color background_color;
+
+		bool ok = false; //if window is created sucessfully variable's value is true 
+		bool quit = false; //set true to quit window
 		bool print_error, write_error;
+
+
+		//special hard coded event : press X to close window
+		framework::KeyboardEvent* quit_event = nullptr;
+
+		Uint32  start; //time from starting SDL systems
+		int  FPS;
 	public:
 		GameWindow(const GameWindowSetting& setting);
 		~GameWindow();
@@ -86,6 +102,12 @@ namespace core
 		bool is_ok() const { return ok; }
 		void run();
 
+		SDL_Renderer* get_renderer() { return renderer; }//should be passed to the scene constructor
+	private:
+		void add_quit_event();
+		void wait();
+
+		void draw();
 	};
 };
 };
