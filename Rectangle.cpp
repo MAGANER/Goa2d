@@ -7,13 +7,14 @@ Rectangle::Rectangle(const Vector2i& size,
 					 SDL_Renderer* renderer) :DrawableObject(renderer)
 {
 	fill_rect = new SDL_Rect;
-
 	fill_rect->x = pos.x;
 	fill_rect->y = pos.y;
 	fill_rect->w = size.x;
 	fill_rect->h = size.y;
-	this->color = color;
 
+	this->pos = pos;
+	this->size = size;
+	this->color = color;
 }
 Rectangle::~Rectangle()
 {

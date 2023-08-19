@@ -22,8 +22,13 @@ namespace core
 		void draw(const Vector2i& position);
 		bool is_ok()const { return ok; }
 
-		Vector2i const& get_size()const { return size; }
-		Vector2i const& get_pos()const { return Vector2i(drawing_rect->x, drawing_rect->y); }
+		void update_pos(const Vector2i& new_pos)
+		{
+			pos = new_pos;
+
+			drawing_rect->x = new_pos.x;
+			drawing_rect->y = new_pos.y;
+		}
 	};
 	
 
