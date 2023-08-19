@@ -37,8 +37,8 @@ namespace framework
 		{}
 		virtual ~BaseEvent() {}
 
-		virtual void process(void* event) = 0;
-		virtual void process() = 0;
+		 virtual void process(void* event) = 0;
+		 virtual void process() = 0;
 
 		EventType get_type()const { return type; }
 	};
@@ -50,12 +50,12 @@ namespace framework
 		KeyboardEvent(const keyboard_pred_t& pred, const simple_callback_t& fn, void* state):
 			BaseEvent<keyboard_pred_t,simple_callback_t>(pred,fn,state,EventType::keyboard){}
 		~KeyboardEvent(){}
-		void process(void* e)
+		void process(void* e)override
 		{
 			if (predicat(*static_cast<SDL_Event*>(e)))
 				fn(state);
 		}
-		void process() { return; }
+		void process()override { return; }
 	};
 	class SimpleEvent : public BaseEvent<predicat_t, simple_callback_t>
 	{
@@ -65,6 +65,7 @@ namespace framework
 
 		//state and predicat_condition are variables
 		//that a passed from another places.
+		
 		//most situation doesn't force you to pass
 		//these arguments, so you can use second constructor
 		SimpleEvent(const predicat_t& pred, 
@@ -85,7 +86,7 @@ namespace framework
 		}
 		~SimpleEvent(){}
 
-		void process()
+		void process()override
 		{
 			if (type == EventType::nonconditional)
 				fn(state);
@@ -97,7 +98,7 @@ namespace framework
 		}
 		
 		//this function isn't used by this class
-		void process(void* e) { return; }
+		void process(void* e)override { return; }
 	};
 
 	class EventManager

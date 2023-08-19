@@ -9,20 +9,17 @@ namespace core
 	class Texture: public DrawableObject
 	{
 		SDL_Texture* texture = nullptr;
-		bool ok = true;
-
-		SDL_Renderer* renderer = nullptr; //use it to draw
-
-		Vector2i size;
 		SDL_Rect* drawing_rect = nullptr;
+
+		bool ok = true;
 	public:
 		Texture(const std::string& path,SDL_Renderer* renderer);
 		~Texture();
 
-		void draw(const Vector2i& position);
+		void draw(const Vector2i& position)override;
 		bool is_ok()const { return ok; }
 
-		void update_pos(const Vector2i& new_pos)
+		void update_pos(const Vector2i& new_pos)override
 		{
 			pos = new_pos;
 

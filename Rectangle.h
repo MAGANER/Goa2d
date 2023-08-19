@@ -18,10 +18,10 @@ namespace core
 				  SDL_Renderer* renderer);
 		~Rectangle();
 
-		void draw(const Vector2i& position);
+		void draw(const Vector2i& position)override;
 
 		void set_color(const Color& color) { this->color = color; }
-		void update_pos(const Vector2i& new_pos)
+		void update_pos(const Vector2i& new_pos)override
 		{
 			pos = new_pos;
 

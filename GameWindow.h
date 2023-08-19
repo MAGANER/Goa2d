@@ -18,39 +18,40 @@ namespace core
 		Vector2i win_pos, win_size;
 		int FPS;
 
-		GameWindowSetting()
+		GameWindowSetting():SDL_subsystems(SDL_INIT_VIDEO),
+						    win_size(Vector2i(720,640)),
+							title("Goat2d"),
+							background_color(Color(0,0,0,255)),
+							_print_error(true),
+							_write_error(true),
+							win_pos(Vector2i(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED)),
+							FPS(30)
 		{
 			//create default game window settings
-			SDL_subsystems = SDL_INIT_VIDEO;
-			win_size = Vector2i(720, 640);
-			title = "Goat2d";
-			background_color = Color(0, 0, 0, 255);
-			_print_error = true;
-			_write_error = true;
-			win_pos = Vector2i(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-			FPS = 30;
 		}
-		GameWindowSetting(const GameWindowSetting& setting)
+		GameWindowSetting(const GameWindowSetting& setting):
+						    SDL_subsystems(setting.SDL_subsystems),
+						    win_size(setting.win_size),
+							title(setting.title),
+							background_color(setting.background_color),
+							_print_error(setting._print_error),
+							_write_error(setting._write_error),
+							win_pos(setting.win_pos),
+							FPS(setting.FPS)
 		{
-			SDL_subsystems = setting.SDL_subsystems;
-			win_size = setting.win_size;
-			title = setting.title;
-			background_color = setting.background_color;
-			_print_error = setting._print_error;
-			_write_error = setting._write_error;
-			win_pos = setting.win_pos;
-			FPS = setting.FPS;
+			//fully customized window setting by user based on another setting
 		}
 		GameWindowSetting(int SDL_subsystems,
-						  const Vector2i& win_size)
+						  const Vector2i& win_size):
+						  SDL_subsystems(SDL_subsystems),
+						  win_size(win_size),
+						  background_color(Color(0, 0, 0, 255)),
+						  _print_error(true),
+						  _write_error(true),
+						  win_pos(Vector2i(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED)),
+						  FPS(30)
 		{
-			this->SDL_subsystems = SDL_subsystems;
-			this->win_size = win_size;
-			background_color = Color(0, 0, 0, 255);
-			_print_error = true;
-			_write_error = true;
-			win_pos = Vector2i(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
-			FPS = 30;
+			//set only window size and required sdl subsystems
 		}
 		GameWindowSetting(int SDL_subsystems,
 						  const Vector2i& win_size,
@@ -59,15 +60,17 @@ namespace core
 						  const Color& background_color,
 						  bool _print_error,
 						  bool _write_error,
-						  int FPS)
+						  int FPS):
+							SDL_subsystems(SDL_subsystems),
+							win_size(win_size),
+							title(title),
+							background_color(background_color),
+							_print_error(_print_error),
+							_write_error(_write_error),
+							win_pos(win_pos),
+							FPS(FPS)
 		{
-			this->SDL_subsystems = SDL_subsystems;
-			this->win_size = win_size;
-			this->background_color = background_color;
-			this->_print_error = _print_error;
-			this->_write_error = _write_error;
-			this->win_pos = win_pos;
-			this->FPS = FPS;
+			//fully customized setting by user
 		}
 		~GameWindowSetting(){}
 
