@@ -3,6 +3,8 @@
 #include <functional>
 #include<list>
 #include"SDL.h"
+
+#define ZERO_STATE (void*)nullptr
 namespace Goat2d
 {
 namespace framework
@@ -57,21 +59,45 @@ namespace framework
 	};
 	class SimpleEvent : public BaseEvent<predicat_t, simple_callback_t>
 	{
+	private:
+		void* predicat_event_to_check = nullptr;
 	public:
-		SimpleEvent(const predicat_t& pred, const simple_callback_t& fn,void* state, EventType type):
-			BaseEvent<predicat_t, simple_callback_t>(pred,fn,state,type){}
+
+		//state and predicat_condition are variables
+		//that a passed from another places.
+		//most situation doesn't force you to pass
+		//these arguments, so you can use second constructor
+		SimpleEvent(const predicat_t& pred, 
+					const simple_callback_t& fn, 
+					EventType type, 
+					void* state,
+					void* predicat_condition):
+			BaseEvent<predicat_t, simple_callback_t>(pred,fn,state,type)
+		{
+			predicat_event_to_check = predicat_condition;
+		}
+		SimpleEvent(const predicat_t& pred,
+					const simple_callback_t& fn,
+					EventType type)
+			:BaseEvent<predicat_t,simple_callback_t>(pred,fn,ZERO_STATE,type)
+		{
+			//predicat_event_to_check stay nullptr
+		}
 		~SimpleEvent(){}
 
-		void process(void* e)
-		{
-			if (type == EventType::conditional)
-				if (predicat(e))fn(state);
-		}
 		void process()
 		{
 			if (type == EventType::nonconditional)
 				fn(state);
+			else
+			{
+				if (predicat(predicat_event_to_check))
+					fn(state);
+			}
 		}
+		
+		//this function isn't used by this class
+		void process(void* e) { return; }
 	};
 
 	class EventManager
@@ -110,5 +136,5 @@ namespace framework
 	}
 };
 };
-#define ZERO_STATE (void*)nullptr
+
 #endif
