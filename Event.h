@@ -4,7 +4,7 @@
 #include<list>
 #include"SDL.h"
 
-#define ZERO_STATE (void*)nullptr
+#define ZERO_STATE static_cast<void*>(nullptr)
 namespace Goat2d
 {
 namespace framework
@@ -49,7 +49,10 @@ namespace framework
 	public:
 		KeyboardEvent(const keyboard_pred_t& pred, const simple_callback_t& fn, void* state):
 			BaseEvent<keyboard_pred_t,simple_callback_t>(pred,fn,state,EventType::keyboard){}
+		KeyboardEvent(const keyboard_pred_t& pred, const simple_callback_t& fn):
+			BaseEvent<keyboard_pred_t,simple_callback_t>(pred,fn,ZERO_STATE,EventType::keyboard){}
 		~KeyboardEvent(){}
+
 		void process(void* e)override
 		{
 			if (predicat(*static_cast<SDL_Event*>(e)))
