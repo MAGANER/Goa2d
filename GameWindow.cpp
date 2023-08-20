@@ -27,6 +27,13 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 		}
 		else
 		{
+			///My little note on correct_init 
+			///CppCheck says there are several problems connected to this variable,
+			/// but we change it to false/true because there are several init functions calls
+			/// so we if one doesn't work then everything else won't work too, so ignore
+			/// this CppCheck's note.
+			/// P.S. I think there can be some more elegant way to init all required 
+			
 			//set it to false if any subsystem is not loaded correctly
 			bool correct_init = false;
 
@@ -36,7 +43,7 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 				if (print_error)::print_error("SDL_image could not initialize! SDL_image Error:");
 				if (write_error)::write_error("SDL_image could not initialize! SDL_image Error:");
 
-				correct_init = true;
+				correct_init = false;
 			}
 			
 			//init renderer
@@ -57,10 +64,11 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 				//Update the surface
 				SDL_UpdateWindowSurface(window);
 
-				ok = true;
-				add_quit_event();
+				ok = true;//everything worked fine
+				add_quit_event();//create event to check should window be closed
 
-				start = SDL_GetTicks();
+
+				start = SDL_GetTicks();//used by frame rate limiter
 				FPS = setting.FPS;
 				background_color = setting.background_color;
 			}
@@ -82,12 +90,18 @@ GameWindow::~GameWindow()
 }
 void GameWindow::run()
 {
+	//main game cycle
+
+	//check and process keyboard events
+	//process event of scene
+	//draw and wait a bit to set FPS limit
+
 	SDL_Event e;
 	while (!quit)
 	{
 		if (SDL_WaitEvent(&e) != 0)
 		{
-			quit_event->process((void*)&e);
+			quit_event->process(static_cast<void*>(&e));
 			process_keyboard_events(e);
 		}
 		process_game_events();
@@ -99,12 +113,15 @@ void GameWindow::run()
 void GameWindow::add_quit_event()
 {
 	//default event to process quit button pressing
+
 	auto pred = [](const SDL_Event& e) -> bool
 	{
+		//if user press X on window, then it's time to quit window
 		return e.type == SDL_QUIT;
 	};
 	auto fn = [&](void* state) -> void
 	{
+		//if pred returns true, then we change quit variable's value to true
 		if (state != ZERO_STATE)
 		{
 			bool* val = static_cast<bool*>(state);
@@ -112,7 +129,8 @@ void GameWindow::add_quit_event()
 		}
 	};
 
-	quit_event = new framework::KeyboardEvent(pred, fn, (void*)&this->quit);
+	//bind predicat, function and state together to get event
+	quit_event = new framework::KeyboardEvent(pred, fn, static_cast<void*>(&this->quit));
 }
 void GameWindow::wait()
 {

@@ -28,7 +28,7 @@ namespace framework
 		void process_keyboard_events(SDL_Event& _event)
 		{
 			for(auto& e: event_manager.get_keyboard_events())
-				e->process((void*)&_event);
+				e->process(static_cast<void*>(&_event));
 		}
 		void process_game_events()
 		{
