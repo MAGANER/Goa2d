@@ -6,9 +6,14 @@ namespace Goat2d
 {
 namespace core
 {
+	/*
+		Base class for every object that can be drawn: textures, primitives.
+	*/
 	class DrawableObject
 	{
 	protected:
+		//this pointer has an address of renderer that was initialised in GameWindow class
+		//so you shouldn't init/delete it, just use it for SDL functions, where it's required
 		SDL_Renderer* renderer = nullptr; //use it to draw
 
 		DrawableObject(SDL_Renderer* renderer):renderer(renderer){}
