@@ -21,7 +21,7 @@ namespace framework
 		int id = 0;
 	public:
 		BaseScene(int id, SDL_Renderer* renderer):id(id),renderer(renderer){}
-		~BaseScene(){}
+		virtual ~BaseScene(){}
 
 		
 		virtual void render() = 0;
