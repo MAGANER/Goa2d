@@ -8,6 +8,7 @@ namespace Goat2d
 {
 namespace core 
 {
+	//these proceduras are used to print/write special SDL Errors
 	static void print_error(const std::string& additional_info)
 	{
 		std::cout << additional_info << SDL_GetError()<<std::endl;
@@ -20,6 +21,7 @@ namespace core
 		std::ofstream f(log_file_name);
 		f << additional_info << SDL_GetError()<<std::endl;
 	}
+	//TODO:: write same proceduras for Goat2d errors
 };
 };
 #endif //ERROR_LOGGER_H

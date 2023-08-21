@@ -6,6 +6,11 @@ namespace Goat2d
 {
 namespace framework
 {
+	/*
+		This class is base for GameWindow, since game window
+		only gets the scenes and then pass it to scene manager
+		to get current scene to process/draw.
+	*/
 	class SceneManager
 	{
 		std::unordered_map<int, BaseScene*> scenes;
@@ -16,7 +21,6 @@ namespace framework
 
 		void add_scene(BaseScene* scene);
 		void set_start_scene_id(int id) { current_scene_id = id; }
-
 	protected:
 		void process_keyboard_events(SDL_Event& event);
 		void process_game_events();
