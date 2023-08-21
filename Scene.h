@@ -6,6 +6,8 @@
 #include"Line.h"
 #include"Point.h"
 #include"Vector.h"
+#include"Font.h"
+#include"Text.h"
 #include"Color.h"
 namespace Goat2d
 {
@@ -87,13 +89,21 @@ namespace framework
 		{
 			return new core::Line(points, color, renderer);
 		}
-		inline core::Point* create_while_point(const core::Vector2i& point)
+		inline core::Point* create_white_point(const core::Vector2i& point)
 		{
 			return new core::Point(point, renderer);
 		}
 		inline core::Point* create_colored_point(const core::Vector2i& point, const core::Color& color)
 		{
 			return new core::Point(point, color, renderer);
+		}
+		inline core::Text* create_white_text(const std::string& text,const core::Vector2i& pos, core::Font* font)
+		{
+			return new core::Text(*font, text, pos, renderer);
+		}
+		inline core::Text* create_colored_text(const std::string& text, const core::Vector2i& pos, const core::Color& color, core::Font* font)
+		{
+			return new core::Text(*font, text, pos, renderer, color);
 		}
 
 	};
