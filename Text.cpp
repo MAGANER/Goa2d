@@ -26,8 +26,7 @@ Text::Text(const Font& font,
 		}
 		else
 		{
-			size.x = surface->w;
-			size.y = surface->h;
+			SDL_QueryTexture(text_texture, NULL, NULL, &size.x, &size.y);
 
 			rect = new SDL_Rect;
 			rect->x = pos.x;
