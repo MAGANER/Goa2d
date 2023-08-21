@@ -1,6 +1,7 @@
 #ifndef GAME_WINDOW_H
 #define GAME_WINDOW_H
 #include"SceneManager.h"
+#include"SDL_ttf.h"
 namespace Goat2d
 {
 namespace core

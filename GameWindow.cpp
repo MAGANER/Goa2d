@@ -35,7 +35,7 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 			/// P.S. I think there can be some more elegant way to init all required 
 			
 			//set it to false if any subsystem is not loaded correctly
-			bool correct_init = false;
+			bool correct_init = true;
 
 			//init img library
 			if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
@@ -46,6 +46,14 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 				correct_init = false;
 			}
 			
+			//init ttf library
+			if (TTF_Init() == -1)
+			{
+				if (print_error)::print_error("SDL_ttf could not initialize! SDL_ttf Error:");
+				if (write_error)::write_error("SDL_ttf could not initialize! SDL_ttf Error:");
+				correct_init = false;
+			}
+
 			//init renderer
 			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 			if (renderer == NULL)
@@ -53,10 +61,6 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 				if (print_error)::print_error("Renderer could not be created! SDL Error:");
 				if (write_error)::write_error("Renderer could not be created! SDL Error:");
 				correct_init = false;
-			}
-			else
-			{
-				correct_init = true;
 			}
 
 			if(correct_init)
@@ -84,6 +88,8 @@ GameWindow::~GameWindow()
 
 	//Quit SDL subsystems
 	SDL_Quit();
+	TTF_Quit();
+	IMG_Quit();
 
 	if (quit_event != nullptr)
 		delete quit_event;
