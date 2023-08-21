@@ -43,6 +43,7 @@ namespace core
 		}
 		GameWindowSetting(int SDL_subsystems,
 						  const Vector2i& win_size):
+						  title("Goat2d"),
 						  SDL_subsystems(SDL_subsystems),
 						  win_size(win_size),
 						  background_color(Color(0, 0, 0, 255)),
@@ -76,6 +77,13 @@ namespace core
 
 	};
 
+	/*
+		GameWindow is class that is used to process game scene.
+		So being derived from Scene manager it can add,change,process,draw .e.t.c
+		each game scene.
+		After the creation you should set scenes and check is everything ok to
+		be sure the program won't crush.
+	*/
 	class GameWindow: public framework::SceneManager
 	{
 		//The window we'll be rendering to
@@ -90,7 +98,8 @@ namespace core
 
 		bool ok = false; //if window is created sucessfully variable's value is true 
 		bool quit = false; //set true to quit window
-		bool print_error, write_error;
+		
+		bool print_error, write_error;//flags show should game window do this actions
 
 
 		//special hard coded event : press X to close window
