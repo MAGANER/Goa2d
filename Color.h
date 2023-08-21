@@ -11,6 +11,15 @@ namespace core
 	{
 		return Color{.r=r,.g=g,.b=b,.a=a};
 	}
+	static inline void copy_color(Color* dest, Color* source)
+	{
+		//TODO::add checks if those pointers aren't nulls
+
+		dest->r = source->r;
+		dest->g = source->g;
+		dest->b = source->b;
+		dest->a = source->a;
+	}
 };
 };
 #endif
