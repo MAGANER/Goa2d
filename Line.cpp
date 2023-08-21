@@ -23,7 +23,3 @@ void Line::draw(const Vector2i& position)
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawLine(renderer, pos.x, pos.y, end.x, end.y);
 }
-void Line::update_pos(const Vector2i& new_pos)
-{
-	pos = new_pos;
-}

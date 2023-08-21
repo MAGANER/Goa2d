@@ -24,7 +24,15 @@ namespace core
 		~Line();
 
 		void draw(const Vector2i& position) override;
-		void update_pos(const Vector2i& new_pos) override;
+
+		//don't use this function because you need to change 2 points
+		void update_pos(const Vector2i& new_pos) override { return; }
+
+		void update_pos(const Vector2i& new_pos_begin, const Vector2i& new_pos_end)
+		{
+			pos = new_pos_begin;
+			end = new_pos_end;
+		}
 	};
 };
 };
