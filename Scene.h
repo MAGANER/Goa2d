@@ -3,6 +3,7 @@
 #include"Event.h"
 #include"Texture.h"
 #include"Rectangle.h"
+#include"Line.h"
 #include"Vector.h"
 #include"Color.h"
 namespace Goat2d
@@ -76,6 +77,14 @@ namespace framework
 													 const core::outline_rect_data& outline_params)
 		{
 			return new core::Rectangle(parameters, outline_params, renderer);
+		}
+		inline core::Line* create_white_line(const core::begin_end& points)
+		{
+			return new core::Line(points, renderer);
+		}
+		inline core::Line* create_colored_line(const core::begin_end& points, const core::Color& color)
+		{
+			return new core::Line(points, color, renderer);
 		}
 
 
