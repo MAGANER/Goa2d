@@ -19,6 +19,15 @@ namespace framework
 		keyboard
 	};
 
+	/*
+	  Event is another core idea of the Goat2d framework.
+	  It combines condition(it can be fn-> true, that means always return true)
+	  and action applied to this condition, so you don't need to write
+	  bunch of if-elses, just create event inside the scene and pass it to 
+	  the event manager.
+	*/
+
+	//Every event must inherit this class
 	//T is predicat class, F is action class E is class of event
 	template<class T, class F>
 	class BaseEvent
@@ -28,7 +37,9 @@ namespace framework
 		F fn;
 		EventType type;
 
-		void* state;
+		//outer data that is changed by event
+		//(it can be nullptr, so event doesn't change anything)
+		void* state; 
 	public:
 		BaseEvent(const T& predicat, 
 				  const F& fn, 
@@ -43,12 +54,20 @@ namespace framework
 		EventType get_type()const { return type; }
 	};
 
+
+	/*
+	 This class represents every event connected to keyboard
+	*/
 	typedef std::function<bool(const SDL_Event& e)> keyboard_pred_t;
 	class KeyboardEvent :public BaseEvent<keyboard_pred_t, simple_callback_t>
 	{	
 	public:
+		//constructor for events working with outer state
 		KeyboardEvent(const keyboard_pred_t& pred, const simple_callback_t& fn, void* state):
 			BaseEvent<keyboard_pred_t,simple_callback_t>(pred,fn,state,EventType::keyboard){}
+
+		//constructor for events that can be described as pure functions
+		//because they don't change/require any outer state, so state is just nullptr
 		KeyboardEvent(const keyboard_pred_t& pred, const simple_callback_t& fn):
 			BaseEvent<keyboard_pred_t,simple_callback_t>(pred,fn,ZERO_STATE,EventType::keyboard){}
 		~KeyboardEvent(){}
@@ -58,12 +77,21 @@ namespace framework
 			if (predicat(*static_cast<SDL_Event*>(e)))
 				fn(state);
 		}
+
+		//isn't used
 		void process()override { return; }
 	};
+
+	/*
+	  This class represents common events of game.
+	  However, it can be used to program anything that happens in game.
+	*/
 	class SimpleEvent : public BaseEvent<predicat_t, simple_callback_t>
 	{
 	private:
-		void* predicat_event_to_check = nullptr;
+		//some outer data passed to predicat
+		//it can be nullptr
+		void* predicat_event_to_check = nullptr; 
 	public:
 
 		//state and predicat_condition are variables
@@ -80,6 +108,8 @@ namespace framework
 		{
 			predicat_event_to_check = predicat_condition;
 		}
+
+		// constructor for events that doesn't require outer state to compute predicat value
 		SimpleEvent(const predicat_t& pred,
 					const simple_callback_t& fn,
 					EventType type)
@@ -104,6 +134,7 @@ namespace framework
 		void process(void* e)override { return; }
 	};
 
+	//sort and store events by their type
 	class EventManager
 	{
 		std::list<KeyboardEvent*> keyboard_events;
@@ -130,6 +161,8 @@ namespace framework
 	};
 
 
+
+	//use this functions in your keyboard predicats
 	static inline bool is_key_released(const SDL_Event& e, int key)
 	{
 		return e.type == SDL_KEYUP and e.key.keysym.sym == key;
