@@ -1,7 +1,7 @@
 #ifndef GAME_WINDOW_H
 #define GAME_WINDOW_H
 
-#include"Goat2d/Definitors.hpp"
+#include"Definitors.hpp"
 
 #ifdef USE_SDL_TTF
 #include"SDL_ttf.h"
