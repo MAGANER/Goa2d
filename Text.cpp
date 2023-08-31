@@ -1,4 +1,6 @@
 #include"Text.h"
+#ifdef USE_SDL_TTF
+
 using namespace Goat2d::core;
 
 Text::Text(const Font& font,
@@ -8,6 +10,9 @@ Text::Text(const Font& font,
 		   const Color& color)
 					:DrawableObject(renderer)
 {
+	this->font = const_cast<Font*>(&font);
+	this->color = color;
+
 	SDL_Surface* surface = TTF_RenderText_Solid(const_cast<TTF_Font*>(font.get_font()), 
 												text.c_str(), color);
 	if (surface == NULL)
@@ -60,3 +65,15 @@ void Text::update_pos(const Vector2i& new_pos)
 {
 	pos = new_pos;
 }
+void Text::set_color(const Color& color)
+{
+	SDL_SetTextureColorMod(text_texture, color.r, color.g, color.b);
+}
+Text* Text::update_text(const std::string& text)
+{
+	SDL_DestroyTexture(text_texture);
+	delete rect;
+
+	return new Text(*font, text, pos, renderer, color);
+}
+#endif

@@ -1,3 +1,6 @@
+#include"Definitors.hpp"
+#ifdef USE_SDL_TTF
+
 #ifndef TEXT_H
 #define TEXT_H
 #include"DrawableObject.h"
@@ -17,6 +20,9 @@ namespace core
 
 		SDL_Texture* text_texture = nullptr;
 		SDL_Rect* rect = nullptr;
+		
+		Font* font;
+		Color color;
 	public:
 		Text(const Font& font,
 			 const std::string& text,
@@ -27,9 +33,13 @@ namespace core
 
 		void draw(const Vector2i& position) override;
 		void update_pos(const Vector2i& new_pos) override;
+		void set_color(const Color& color);
 
 		bool is_ok()const { return ok; }
+
+		Text* update_text(const std::string& text);
 	};
 };
 };
-#endif
+#endif //TEXT_H
+#endif //USE_SDL_TTF
