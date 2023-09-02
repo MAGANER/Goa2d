@@ -7,7 +7,7 @@
 #include"SDL_ttf.h"
 #endif
 
-#include"SceneManager.h"
+#include"framework/SceneManager.h"
 #include"ErrorLogger.h"
 
 #include<string>

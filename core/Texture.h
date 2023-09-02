@@ -1,10 +1,10 @@
-#include"Definitors.hpp"
+#include"core/Definitors.hpp"
 #ifdef USE_SDL_IMG
 
 #ifndef TEXTURE_H
 #define TEXTURE_H
-#include"DrawableObject.h"
-#include"ErrorLogger.h"
+#include"core/DrawableObject.h"
+#include"core/ErrorLogger.h"
 namespace Goat2d
 {
 namespace core 

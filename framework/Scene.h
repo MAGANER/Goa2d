@@ -1,14 +1,14 @@
 #ifndef SCENE_H
 #define SCENE_H
 #include"Event.h"
-#include"Texture.h"
-#include"Rectangle.h"
-#include"Line.h"
-#include"Point.h"
-#include"Vector.h"
-#include"Font.h"
-#include"Text.h"
-#include"Color.h"
+#include"core/Texture.h"
+#include"core/Rectangle.h"
+#include"core/Line.h"
+#include"core/Point.h"
+#include"core/Vector.h"
+#include"core/Font.h"
+#include"core/Text.h"
+#include"core/Color.h"
 namespace Goat2d
 {
 namespace framework
