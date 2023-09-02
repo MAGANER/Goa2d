@@ -55,10 +55,8 @@ Text::~Text()
 	if (rect != nullptr)
 		delete rect;
 }
-void Text::draw(const Vector2i& position)
+void Text::draw()
 {
-	rect->x = position.x;
-	rect->y = position.y;
 	SDL_RenderCopy(renderer, text_texture, NULL, rect);
 }
 void Text::update_pos(const Vector2i& new_pos)

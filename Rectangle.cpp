@@ -62,7 +62,7 @@ Rectangle::~Rectangle()
 		delete color;
 }
 
-void Rectangle::draw(const Vector2i& position)
+void Rectangle::draw()
 {
 	if (color != nullptr)
 	{

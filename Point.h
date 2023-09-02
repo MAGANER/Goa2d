@@ -16,7 +16,7 @@ namespace core
 		Point(const Vector2i& pos, SDL_Renderer* renderer);
 		Point(const Vector2i& pos, const Color& color, SDL_Renderer* renderer);
 
-		void draw(const Vector2i& position)override;
+		void draw()override;
 		void update_pos(const Vector2i& new_pos)override;
 	};
 };

@@ -23,7 +23,7 @@ namespace core
 		Texture(const std::string& path,SDL_Renderer* renderer);
 		~Texture();
 
-		void draw(const Vector2i& position)override;
+		void draw()override;
 		bool is_ok()const { return ok; }
 
 		void update_pos(const Vector2i& new_pos)override

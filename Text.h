@@ -31,7 +31,7 @@ namespace core
 			 const Color& color=Color(255,255,255,255));
 		~Text();
 
-		void draw(const Vector2i& position) override;
+		void draw() override;
 		void update_pos(const Vector2i& new_pos) override;
 		void set_color(const Color& color);
 

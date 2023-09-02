@@ -40,7 +40,7 @@ namespace core
 
 		~Rectangle();
 
-		void draw(const Vector2i& position)override;
+		void draw()override;
 
 		void set_color(const Color& color);
 		void set_outline_color(const Color& color);

@@ -24,7 +24,6 @@ namespace core
 
 		Vector2i size, pos;
 	public:
-		virtual void draw(const Vector2i& position) = 0;//draw at certain pos
 		virtual void draw() = 0;
 
 		Vector2i const& get_size()const { return size; }

@@ -13,8 +13,7 @@ Point::Point(const Vector2i& pos, const Color& color, SDL_Renderer* renderer)
 	this->color = color;
 }
 
-
-void Point::draw(const Vector2i& pos)
+void Point::draw()
 {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawPoint(renderer, pos.x, pos.y);

@@ -23,10 +23,7 @@ namespace core
 		Line(const begin_end& points,const Color& color, SDL_Renderer* renderer);
 		~Line();
 
-		[[deprecated("Use special line's method instead or draw without argument.")]]
-		void draw(const Vector2i& position) override { return; };
-
-		void draw();
+		void draw()override;
 		void draw(const Vector2i& pos_start, const Vector2i& pos_end);
 
 		//don't use this function because you need to change 2 points

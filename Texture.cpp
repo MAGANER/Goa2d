@@ -39,10 +39,8 @@ Texture::Texture(const std::string& path, SDL_Renderer* renderer):
         drawing_rect->h = this->size.y;
     }
 }
-void Texture::draw(const Vector2i& position)
+void Texture::draw()
 {
-    drawing_rect->x = position.x;
-    drawing_rect->y = position.y;
 	SDL_RenderCopy(renderer, texture, NULL, drawing_rect);
 }
 Texture::~Texture()
