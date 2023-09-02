@@ -65,7 +65,7 @@ namespace framework
 
 		//create texture/rect/another primitive based on current renderer
 
-		//this method is used by children to avoid working with private renderer pointer
+		//these methods is used by children to avoid working with private renderer pointer
 		//because it's incapsulated and unable to be used by other classes
 		
 		//these function are dedicated to framework's user to simplify creation of game objects
