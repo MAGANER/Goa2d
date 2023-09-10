@@ -110,7 +110,7 @@ Core is just an overwrapper of SDL libraries, but Framework contains all classes
 To build framework on your own, you need to get SDL2 and additional libraries for images, ttf, audio if you use them.
 To get all information about these libraries follow <a href="https://www.libsdl.org/">SDL2's official site</a>. Or you 
 can follow <a href="https://www.lazyfoo.net/tutorials/SDL/index.php">Lazy Foo's tutorials</a> to find out how to build all required libraries.
-After SDL2 and all related libraries are build you should correctly link them to your project with Goat2d or you can statically build goat2d with
+After SDL2 and all related libraries are built you should correctly link them to your project with Goat2d or you can statically build goat2d with
 all libraries.
 </p>
 
