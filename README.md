@@ -92,16 +92,11 @@ it would be a pleasure to find someone else who finds this project useful for ga
 This framework is made of 2 parts: core and framework itself. These parts are namepspaces actually and they contains really different things.
 Core is just an overwrapper of SDL libraries, but Framework contains all classes related to game architecture( or my vision of architecture).
 </p>
-<p align="left">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 - ```SDL2```
 - ```SDL_TTF```
 - ```SDL_IMG```
-
-<p align="left">(<a href="#readme-top">back to top</a>)</p>
 
 ### Projects that used Goat2d
 - <a href="https://github.com/MAGANER/Goat2d">Colored 2048</a>
@@ -110,16 +105,8 @@ Core is just an overwrapper of SDL libraries, but Framework contains all classes
 ## Getting Started
 ### Installation
 
-<p align="left">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-<p align="left">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Versions and related features
@@ -139,10 +126,6 @@ Note: i can add new features to next version's list as time goes by.
 - [] mouse events support
 - [] audio processing
 - [] sprite tileset processing
-
-<p align="left">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING 
 ## Contributing
@@ -167,23 +150,11 @@ Don't forget to give the project a star! Thanks again!
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-<p align="left">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
 Ian(mainteiner) - haskel.lisp@yandex.ru
 
-<p align="left">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
 * [My thoughts on the game architecture - overview on this framework's philosophy](https://maganer.github.io/HaskelLispPlace/articles/game_architecture)
-
-
-<p align="left">(<a href="#readme-top">back to top</a>)</p>
