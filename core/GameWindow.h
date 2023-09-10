@@ -1,3 +1,12 @@
+/*!
+\file
+\brief Contains GameWindow that obtains scenes to process and GameWindowSetting to customize window's setting
+\author Maganer
+\version 0.1
+\date 02.09.2023
+*/
+
+
 #ifndef GAME_WINDOW_H
 #define GAME_WINDOW_H
 
@@ -20,15 +29,32 @@ namespace core
 	* GameWindowSetting is structure that contains parameters,
 	* that should be provided to GameWindow class to set its initial state
 	*/
+
+	//! contains setting for window. It was created to prevent too many arguments of GameWindow's constructor
 	struct GameWindowSetting
 	{
-		int SDL_subsystems; //SDL_INIT_VIDEO or SDL_INIT_VIDEO | SDL_INIT_AUDIO e.t.c
+		//! SDL_INIT_VIDEO or SDL_INIT_VIDEO | SDL_INIT_AUDIO e.t.c
+		int SDL_subsystems; 
+
+		//! window's name
 		std::string title;
+
+		//! clearing color
 		Color background_color;
+
+		//! error processing flags
 		bool _print_error, _write_error;
+
+		//! start position and width, height pair
 		Vector2i win_pos, win_size;
+
+		//! FPS limit
 		int FPS;
 
+
+		/*!
+		\brief creates default window's setting
+		*/
 		GameWindowSetting():SDL_subsystems(SDL_INIT_VIDEO),
 						    win_size(Vector2i(720,640)),
 							title("Goat2d"),
@@ -40,6 +66,12 @@ namespace core
 		{
 			//create default game window settings
 		}
+
+
+		/*!
+		\brief creates window's setting based on already existed setting
+		\param[in] setting reference to Setting structure object
+		*/
 		GameWindowSetting(const GameWindowSetting& setting):
 						    SDL_subsystems(setting.SDL_subsystems),
 						    win_size(setting.win_size),
@@ -52,6 +84,13 @@ namespace core
 		{
 			//fully customized window setting by user based on another setting
 		}
+
+
+		/*!
+		\brief creates window from required systems and size. Suitable for testing.
+		\param[in] SDL_subsystems systems that should be init
+		\param[in] win_size window's width and height
+		*/
 		GameWindowSetting(int SDL_subsystems,
 						  const Vector2i& win_size):
 						  title("Goat2d"),
@@ -65,71 +104,77 @@ namespace core
 		{
 			//set only window size and required sdl subsystems
 		}
-		GameWindowSetting(int SDL_subsystems,
-						  const Vector2i& win_size,
-						  const Vector2i& win_pos,
-						  const std::string& title,
-						  const Color& background_color,
-						  bool _print_error,
-						  bool _write_error,
-						  int FPS):
-							SDL_subsystems(SDL_subsystems),
-							win_size(win_size),
-							title(title),
-							background_color(background_color),
-							_print_error(_print_error),
-							_write_error(_write_error),
-							win_pos(win_pos),
-							FPS(FPS)
-		{
-			//fully customized setting by user
-		}
+
 		~GameWindowSetting(){}
 
 	};
 
-	/*
-		GameWindow is class that is used to process game scene.
-		So being derived from Scene manager it can add,change,process,draw .e.t.c
-		each game scene.
-		After the creation you should set scenes and check is everything ok to
-		be sure the program won't crush.
+	/*!
+	\brief GameWindow is class that is used to process game scene.
+	\author MAGANER
+	\date 10.09.2023
+
+	Being derived from Scene manager it can add,change,process,draw .e.t.c
+	each game scene.
+	After the creation you should set scenes and check is everything ok to
+	be sure the program won't crush.
 	*/
 	class GameWindow: public framework::SceneManager
 	{
-		//The window we'll be rendering to
+		//! The window we'll be rendering to
 		SDL_Window* window = nullptr;
 
-		//The window renderer
+		//! The window renderer
 		SDL_Renderer* renderer = nullptr;
 		
 
-		//clearing color
+		//! clearing color
 		Color background_color;
 
-		bool ok = false; //if window is created sucessfully variable's value is true 
-		bool quit = false; //set true to quit window
+		//! if window is created sucessfully variable's value is true 
+		bool ok = false; 
+
+		//! set true to quit window
+		bool quit = false; 
 		
-		bool print_error, write_error;//flags show should game window do this actions
+		//! flags show should game window do this actions
+		bool print_error, write_error;
 
 
-		//special hard coded event : press X to close window
+		//! special hard coded event : press X to close window
 		framework::KeyboardEvent* quit_event = nullptr;
 
-		Uint32  start; //time from starting SDL systems
+		//! time from starting SDL systems
+		Uint32  start; 
+
+		//! FPS counter
 		int  FPS;
 	public:
+		/*!
+		\brief creates window from passed setting
+		\param[in] setting reference to Setting structure object
+		*/
 		GameWindow(const GameWindowSetting& setting);
 		~GameWindow();
 
+		//! returns the state of window creation. True if ok, else False
 		bool is_ok() const { return ok; }
+
+		//! execute game cycle
 		void run();
 
-		SDL_Renderer* get_renderer() { return renderer; }//should be passed to the scene constructor
+		//! should be passed to the scene constructor.
+		SDL_Renderer* get_renderer() { return renderer; }
 	private:
+
+		//! create quit event used by window
 		void add_quit_event();
+
+		//! set FPS limit
 		void wait();
 
+
+		//! render current scene
 		void draw();
 	};
 };
