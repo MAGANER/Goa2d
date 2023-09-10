@@ -137,10 +137,10 @@ Note: i can add new features to next version's list as time goes by.
 - [ ] automated script to configure framework  
 
 ### Version 0.2
-- [] Creation of fully customized window with icons, dynamic resiing and fullscreen
-- [] mouse events support
-- [] audio processing
-- [] sprite tileset processing
+- [ ] Creation of fully customized window with icons, dynamic resiing and fullscreen
+- [ ] mouse events support
+- [ ] audio processing
+- [ ] sprite tileset processing
 
 <!-- CONTRIBUTING 
 ## Contributing
