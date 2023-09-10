@@ -103,7 +103,8 @@ Core is just an overwrapper of SDL libraries, but Framework contains all classes
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
-
+### Projects that used Goat2d
+- <a href="https://github.com/MAGANER/Goat2d">Colored 2048</a>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -121,8 +122,23 @@ Core is just an overwrapper of SDL libraries, but Framework contains all classes
 
 
 <!-- ROADMAP -->
-## Roadmap  and versions's features
+## Versions and related features
+Note: i can add new features to next version's list as time goes by.
 
+## Versions
+### Version 0.1(current)
+- [x] Creation of basic window without icon and ability to resize dynamicly and without ability to set Fullscreen
+- [x] Ability to render basic primitive shapes: Rectangles, Points, Lines
+- [x] Ability to load and render images in form of textures(for available image formats, check out SDL_IMG official site)
+- [x] Ability to load TTF fonts and render texts
+- [x] Ability to process keyboard events
+- [x] Set of basic classes to implement Scenes, Events
+
+### Version 0.2
+- [] Creation of fully customized window with icons, dynamic resiing and fullscreen
+- [] mouse events support
+- [] audio processing
+- [] sprite tileset processing
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,7 +174,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Ian - haskel.lisp@yandex.ru
+Ian(mainteiner) - haskel.lisp@yandex.ru
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
