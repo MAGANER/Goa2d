@@ -95,8 +95,8 @@ Core is just an overwrapper of SDL libraries, but Framework contains all classes
 
 ### Built With
 - ```SDL2```
-- ```SDL_TTF```
-- ```SDL_IMG```
+- ```SDL_TTF```(optional)
+- ```SDL_IMG```(optional)
 
 ### Projects that used Goat2d
 - <a href="https://github.com/MAGANER/Goat2d">Colored 2048</a>
@@ -112,6 +112,14 @@ To get all information about these libraries follow <a href="https://www.libsdl.
 can follow <a href="https://www.lazyfoo.net/tutorials/SDL/index.php">Lazy Foo's tutorials</a> to find out how to build all required libraries.
 After SDL2 and all related libraries are built you should correctly link them to your project with Goat2d or you can statically build goat2d with
 all libraries.
+</p>
+
+<h4>With install.py</h4>
+<p>
+Following this way, you should clone this repo first and then run install.py. To properly run this script cmake and unzip applications are required.
+You can use this script to get SDL and all additional libraries. Then you just need to build SDL main library after you get makefiles/visual studio project/e.t.c.
+After installation you can build Goat2D as static or dynamic library.
+ 
 </p>
 
 <!-- USAGE EXAMPLES 
@@ -132,9 +140,9 @@ Note: i can add new features to next version's list as time goes by.
 - [x] Ability to load TTF fonts and render texts
 - [x] Ability to process keyboard events
 - [x] Set of basic classes to implement Scenes, Events
-- [x] Added doxygene generated documentation
+- [x] Add doxygene generated documentation
 - [ ] CMake list
-- [ ] automated script to configure framework  
+- [x] automated script to configure framework  
 
 ### Version 0.2
 - [ ] Creation of fully customized window with icons, dynamic resiing and fullscreen
