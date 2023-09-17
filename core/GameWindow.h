@@ -183,6 +183,12 @@ namespace core
 
 		//! should be passed to the scene constructor.
 		SDL_Renderer* get_renderer() { return renderer; }
+
+		//! set "real" fullscreen with a videomode change
+		bool set_true_fullscreen_mode();
+
+		//! "fake" fullscreen that takes the size of the desktop; and 0 for windowed mode
+		bool set_false_fullscreen_mode();
 	private:
 
 		//! create quit event used by window

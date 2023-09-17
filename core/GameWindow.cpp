@@ -212,3 +212,27 @@ bool GameWindow::set_window_fullscreen_mode(const GameWindowSetting& setting)
 		return false;
 	}
 }
+bool GameWindow::set_true_fullscreen_mode()
+{
+	if (SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN) != 0)
+	{
+		if (print_error)
+			::print_error("Failed to set fullscreen mode! SDL_Error:");
+		if (write_error)
+			::write_error("Failed to set fullscreen mode! SDL_Error:");
+		return false;
+	}
+	return true;
+}
+bool GameWindow::set_false_fullscreen_mode()
+{
+	if (SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP) != 0)
+	{
+		if (print_error)
+			::print_error("Failed to set fullscreen mode! SDL_Error:");
+		if (write_error)
+			::write_error("Failed to set fullscreen mode! SDL_Error:");
+		return false;
+	}
+	return true;
+}
