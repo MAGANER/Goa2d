@@ -16,6 +16,10 @@
 #include"SDL_ttf.h"
 #endif
 
+#ifdef USE_SDL_AUDIO
+#include"SDL_mixer.h"
+#endif
+
 #include"framework/SceneManager.h"
 #include"ErrorLogger.h"
 

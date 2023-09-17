@@ -17,4 +17,8 @@ Comment or uncomment macroses if you need or don't need mentioned library.
 
 //! give an ability to use sdl image library
 #define USE_SDL_IMG
+
+//! give an ability to use sdl audio library
+#define USE_SDL_AUDIO
+
 #endif

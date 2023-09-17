@@ -62,6 +62,18 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 			}
 	#endif //USE_SDL_TTF
 
+
+	#ifdef USE_SDL_AUDIO
+			//init audio library
+			if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) != 0)
+			{
+				if (print_error)::print_error("SDL_mixer could not initialize! SDL_mixer Error:");
+				if (write_error)::write_error("SDL_mixer could not initialize! SDL_mixer Error:");
+				correct_init = false;
+			}
+	#endif // USE_SDL_AUDIO
+
+
 			//init renderer
 			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 			if (renderer == NULL)
