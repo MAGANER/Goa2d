@@ -144,11 +144,12 @@ Note: i can add new features to next version's list as time goes by.
 - [x] automated script to configure framework(install all dependencies) 
 
 ### Version 0.2
-- [ ] Creation of fully customized window with icons, dynamic resiing and fullscreen
+- [x] Creation of fully customized window with icons, dynamic resiing and fullscreen
 - [ ] mouse events support
 - [ ] audio processing
 - [ ] sprite tileset processing
 - [ ] script to build framework as library
+- [ ] Camera
 
 <!-- CONTRIBUTING 
 ## Contributing
