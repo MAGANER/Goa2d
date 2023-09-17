@@ -37,6 +37,10 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 			//set it to false if any subsystem is not loaded correctly
 			bool correct_init = true;
 
+			//set  fullscreen if required and if it fails, than we can't init 
+			correct_init = set_window_fullscreen_mode(setting);
+
+
 	#ifdef USE_SDL_IMG
 			//init img library
 			if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
@@ -184,4 +188,27 @@ Uint32 GameWindow::get_window_mode(const GameWindowSetting& setting)
 
 	//return default window mode
 	return SDL_WINDOW_SHOWN;
+}
+bool GameWindow::set_window_fullscreen_mode(const GameWindowSetting& setting)
+{
+	if (setting.false_fullscreen == setting.true_fullscreen)
+	{
+		if (print_error)::print_error("Can't set fullscreen mode! Choose true xor false fullscreen mode!");
+		if (write_error)::write_error("Can't set fullscreen mode! Choose true xor false fullscreen mode!");
+		return false;
+	}
+	else
+	{
+		auto mode = setting.false_fullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : SDL_WINDOW_FULLSCREEN;
+		
+		auto code = SDL_SetWindowFullscreen(window, mode);
+		if (code == 0) 
+			return true;
+
+		if(print_error)
+			::print_error("Failed to set fullscreen mode! SDL_Error:");
+		if (write_error)
+			::write_error("Failed to set fullscreen mode! SDL_Error:");
+		return false;
+	}
 }

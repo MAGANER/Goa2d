@@ -51,8 +51,14 @@ namespace core
 		//! FPS limit
 		int FPS;
 
-		//window's ability to change its width and height
+		//! window's ability to change its width and height
 		bool resizable;
+
+		//! "real" fullscreen with a videomode change
+		bool true_fullscreen;
+
+		//! "fake" fullscreen that takes the size of the desktop; and 0 for windowed mode
+		bool false_fullscreen;
 
 
 		/*!
@@ -66,7 +72,9 @@ namespace core
 							_write_error(true),
 							win_pos(Vector2i(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED)),
 							FPS(30),
-			                resizable(false)
+			                resizable(false),
+							true_fullscreen(false),
+							false_fullscreen(false)
 		{
 			//create default game window settings
 		}
@@ -85,7 +93,9 @@ namespace core
 							_write_error(setting._write_error),
 							win_pos(setting.win_pos),
 							FPS(setting.FPS),
-							resizable(setting.resizable)
+							resizable(setting.resizable),
+							true_fullscreen(setting.true_fullscreen),
+							false_fullscreen(setting.false_fullscreen)
 		{
 			//fully customized window setting by user based on another setting
 		}
@@ -106,7 +116,9 @@ namespace core
 						  _write_error(true),
 						  win_pos(Vector2i(SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED)),
 						  FPS(30),
-						  resizable(false)
+						  resizable(false),
+						  true_fullscreen(false),
+						  false_fullscreen(false)
 		{
 			//set only window size and required sdl subsystems
 		}
@@ -185,6 +197,10 @@ namespace core
 
 		//! it's always shown, but it optionally can be fullscreen or resizable
 		Uint32 get_window_mode(const GameWindowSetting& setting);
+
+
+		//! set window mode at the creation of window
+		bool set_window_fullscreen_mode(const GameWindowSetting& setting);
 	};
 };
 };
