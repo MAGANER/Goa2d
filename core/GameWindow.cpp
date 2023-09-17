@@ -106,15 +106,17 @@ GameWindow::~GameWindow()
 	//Destroy window
 	SDL_DestroyWindow(window);
 
-	//Quit SDL subsystems
 	SDL_Quit();
 
-#ifdef USE_SDL_TTF
-	TTF_Quit();
-#endif
-#ifdef USE_SDL_IMG
-	IMG_Quit();
-#endif
+	#ifdef USE_SDL_TTF
+		TTF_Quit();
+	#endif
+	#ifdef USE_SDL_IMG
+		IMG_Quit();
+	#endif
+	#ifdef USE_SDL_AUDIO
+		Mix_Quit();
+	#endif
 
 	if (quit_event != nullptr)
 		delete quit_event;
