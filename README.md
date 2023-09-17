@@ -117,8 +117,7 @@ all libraries.
 <h4>With install.py</h4>
 <p>
 Following this way, you should clone this repo first and then run install.py. To properly run this script cmake and unzip applications are required.
-You can use this script to get SDL and all additional libraries. Then you just need to build SDL main library after you get makefiles/visual studio project/e.t.c.
-After installation you can build Goat2D as static or dynamic library.
+You can use this script to get SDL and all additional libraries. This script can be used to download SDL2, SDL_image, SDL_ttf and other additional libraries.
  
 </p>
 
@@ -150,7 +149,7 @@ Note: i can add new features to next version's list as time goes by.
 - [ ] sprite tileset processing
 - [ ] script to build framework as library
 - [ ] Camera
-- [ ] Timer
+- [x] Timer
 
 <!-- CONTRIBUTING 
 ## Contributing
