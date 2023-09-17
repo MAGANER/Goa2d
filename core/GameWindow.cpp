@@ -19,7 +19,7 @@ GameWindow::GameWindow(const GameWindowSetting& setting)
 								  setting.win_pos.y,
 								  setting.win_size.x,
 								  setting.win_size.y,
-								  SDL_WINDOW_SHOWN);
+								  get_window_mode(setting));
 		if (window == NULL)
 		{
 			if(print_error)::print_error("failed to create window! SDL_Error:");
@@ -173,4 +173,15 @@ void GameWindow::draw()
 	SDL_RenderClear(renderer);
 	draw_current_scene();
 	SDL_RenderPresent(renderer);
+}
+Uint32 GameWindow::get_window_mode(const GameWindowSetting& setting)
+{
+	if (setting.resizable) //and not fullscreen
+	{
+		return SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE;
+	}
+	// if fullscreen and resizable
+
+	//return default window mode
+	return SDL_WINDOW_SHOWN;
 }
