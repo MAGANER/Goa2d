@@ -167,6 +167,10 @@ namespace core
 
 		//! FPS counter
 		int  FPS;
+
+
+		//! icon for the window
+		SDL_Surface* icon = nullptr;
 	public:
 		/*!
 		\brief creates window from passed setting
@@ -189,6 +193,9 @@ namespace core
 
 		//! "fake" fullscreen that takes the size of the desktop; and 0 for windowed mode
 		bool set_false_fullscreen_mode();
+
+		//! change default window's icon to custom one
+		bool set_icon(const std::string& icon_image_path);
 	private:
 
 		//! create quit event used by window

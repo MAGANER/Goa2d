@@ -106,6 +106,9 @@ GameWindow::~GameWindow()
 
 	if (quit_event != nullptr)
 		delete quit_event;
+
+	if (icon != nullptr)
+		SDL_FreeSurface(icon);
 }
 void GameWindow::run()
 {
@@ -191,6 +194,11 @@ Uint32 GameWindow::get_window_mode(const GameWindowSetting& setting)
 }
 bool GameWindow::set_window_fullscreen_mode(const GameWindowSetting& setting)
 {
+	//skip if there is no need to set fullscreen mode
+	if (!setting.false_fullscreen and !setting.true_fullscreen)
+		return true;
+
+	//you can set only 1 mode
 	if (setting.false_fullscreen == setting.true_fullscreen)
 	{
 		if (print_error)::print_error("Can't set fullscreen mode! Choose true xor false fullscreen mode!");
@@ -234,5 +242,18 @@ bool GameWindow::set_false_fullscreen_mode()
 			::write_error("Failed to set fullscreen mode! SDL_Error:");
 		return false;
 	}
+	return true;
+}
+bool GameWindow::set_icon(const std::string& icon_image_path)
+{
+	icon = IMG_Load(icon_image_path.c_str());
+	if (icon == NULL)
+	{
+		if (print_error)::print_error("Failed to load icon " + icon_image_path + "! SDL_Error:");
+		if (print_error)::write_error("Failed to load icon " + icon_image_path + "! SDL_Error:");
+		return false;
+	}
+
+	SDL_SetWindowIcon(window, icon);
 	return true;
 }
