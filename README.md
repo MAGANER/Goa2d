@@ -150,7 +150,7 @@ Note: i can add new features to next version's list as time goes by.
 - [ ] sprite tileset processing
 - [ ] script to build framework as library
 - [ ] Camera
-- [ ] Timer
+- [x] Timer
 
 <!-- CONTRIBUTING 
 ## Contributing
