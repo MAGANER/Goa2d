@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['gamewindow_0',['GameWindow',['../class_goat2d_1_1core_1_1_game_window.html#a99885ec4ff5b773d126c51f8ccea0fe5',1,'Goat2d::core::GameWindow']]],
+  ['gamewindowsetting_1',['gamewindowsetting',['../struct_goat2d_1_1core_1_1_game_window_setting.html#abfa350930a4d2ecb9d782e259520fc58',1,'Goat2d::core::GameWindowSetting::GameWindowSetting()'],['../struct_goat2d_1_1core_1_1_game_window_setting.html#a231c36bc1cc1df71e2792d4c38a1e0af',1,'Goat2d::core::GameWindowSetting::GameWindowSetting(const GameWindowSetting &amp;setting)'],['../struct_goat2d_1_1core_1_1_game_window_setting.html#a7bc514182f9453aaed43b05566bbe9b1',1,'Goat2d::core::GameWindowSetting::GameWindowSetting(int SDL_subsystems, const Vector2i &amp;win_size)']]],
+  ['get_5fconditional_5fevents_2',['get_conditional_events',['../class_goat2d_1_1framework_1_1_event_manager.html#ae8a8ecbd2a4f6acb9beacdade033d573',1,'Goat2d::framework::EventManager']]],
+  ['get_5felapsed_5fticks_3',['get_elapsed_ticks',['../class_goat2d_1_1core_1_1_timer.html#abe69c2e47d87aa3fcead527a94b06af4',1,'Goat2d::core::Timer']]],
+  ['get_5fend_5fpos_4',['get_end_pos',['../class_goat2d_1_1core_1_1_line.html#a83dd625f644b79d6d33e98288eaa7002',1,'Goat2d::core::Line']]],
+  ['get_5fevent_5fmanager_5',['get_event_manager',['../class_goat2d_1_1framework_1_1_base_scene.html#ae773a27275c0775d14c868517af14bf3',1,'Goat2d::framework::BaseScene']]],
+  ['get_5ffont_6',['get_font',['../class_goat2d_1_1core_1_1_font.html#aa76f8b3abfbab6f17ed5aaaedc81e978',1,'Goat2d::core::Font']]],
+  ['get_5fid_7',['get_id',['../class_goat2d_1_1framework_1_1_base_scene.html#a10cffcdb95ed20282eafca615eb8e948',1,'Goat2d::framework::BaseScene']]],
+  ['get_5finput_8',['get_input',['../namespaceinstall.html#ae000473a10f5cabd78a08f193f133992',1,'install']]],
+  ['get_5fkeyboard_5fevents_9',['get_keyboard_events',['../class_goat2d_1_1framework_1_1_event_manager.html#a68ff7fdf935ffcedce036712614bd81d',1,'Goat2d::framework::EventManager']]],
+  ['get_5fnext_5fid_10',['get_next_id',['../class_goat2d_1_1framework_1_1_base_scene.html#a5d0b68891fcbc7bd27c26487d423d302',1,'Goat2d::framework::BaseScene::get_next_id()'],['../class_goat2d_1_1framework_1_1_scene_manager.html#a2910d519697c27a63afddaa4e4b62733',1,'Goat2d::framework::SceneManager::get_next_id()']]],
+  ['get_5fnonconditional_5fevents_11',['get_nonconditional_events',['../class_goat2d_1_1framework_1_1_event_manager.html#a5782c7110ad70e42a8af7735039e8a9a',1,'Goat2d::framework::EventManager']]],
+  ['get_5fpos_12',['get_pos',['../class_goat2d_1_1core_1_1_drawable_object.html#a9051d8de117916684c134212203183ce',1,'Goat2d::core::DrawableObject']]],
+  ['get_5freleases_5flist_13',['get_releases_list',['../namespaceinstall.html#a182c9402732de2477fd1ab6e932b3924',1,'install']]],
+  ['get_5frenderer_14',['get_renderer',['../class_goat2d_1_1core_1_1_game_window.html#af08782a5aeb18953c76717280c94ec03',1,'Goat2d::core::GameWindow::get_renderer()'],['../class_goat2d_1_1framework_1_1_base_scene.html#ad73c8dc85c4b0c25a58e29b710e7edf9',1,'Goat2d::framework::BaseScene::get_renderer()']]],
+  ['get_5freturn_5fvalue_15',['get_return_value',['../class_goat2d_1_1framework_1_1_base_scene.html#a20632f724ba7246bdfe74559bc2211ce',1,'Goat2d::framework::BaseScene']]],
+  ['get_5fsdl_16',['get_sdl',['../namespaceinstall.html#a8a0d075f4b998574b3e6c1b74101b9e1',1,'install']]],
+  ['get_5fsdl_5fimg_17',['get_sdl_img',['../namespaceinstall.html#aa03bc20de49b42010318a91398535aac',1,'install']]],
+  ['get_5fsdl_5fsource_5fdir_18',['get_sdl_source_dir',['../namespaceinstall.html#a352013c00c85e472f11a0337252a9d6c',1,'install']]],
+  ['get_5fsdl_5fttf_19',['get_sdl_ttf',['../namespaceinstall.html#a41c8cb5891f238feac15c7a4b71f44cf',1,'install']]],
+  ['get_5fsize_20',['get_size',['../class_goat2d_1_1core_1_1_drawable_object.html#a0562249af42e914e828af743f3dbddde',1,'Goat2d::core::DrawableObject']]],
+  ['get_5fsource_5fcode_5furl_21',['get_source_code_url',['../namespaceinstall.html#ae76b1ad2ca135c243ff2b1876bb1b50e',1,'install']]],
+  ['get_5fsource_5fcode_5furl_5flist_22',['get_source_code_url_list',['../namespaceinstall.html#a1c3aa4fc771045daf06202c74f5a96c8',1,'install']]],
+  ['get_5ftype_23',['get_type',['../class_goat2d_1_1framework_1_1_base_event.html#a4df56b36d06bc7a99468859b123dcd65',1,'Goat2d::framework::BaseEvent']]],
+  ['get_5fwindow_5fmode_24',['get_window_mode',['../class_goat2d_1_1core_1_1_game_window.html#ac08bfc5c9515669afe4dbbe384bd6f04',1,'Goat2d::core::GameWindow']]]
+];
