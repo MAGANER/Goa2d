@@ -97,6 +97,8 @@ Core is just an overwrapper of SDL libraries, but Framework contains all classes
 - ```SDL2```
 - ```SDL_TTF```(optional)
 - ```SDL_IMG```(optional)
+- ```SDL_mixer```(optional)
+
 
 ### Projects that used Goat2d
 - <a href="https://github.com/MAGANER/Goat2d">Colored 2048</a>
@@ -145,7 +147,7 @@ Note: i can add new features to next version's list as time goes by.
 ### Version 0.2
 - [x] Creation of fully customized window with icons, dynamic resiing and fullscreen
 - [ ] mouse events support
-- [ ] audio processing
+- [x] audio processing
 - [ ] sprite tileset processing
 - [ ] script to build framework as library
 - [ ] Camera
