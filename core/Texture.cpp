@@ -10,7 +10,8 @@ Texture::Texture(const std::string& path, SDL_Renderer* renderer):
     if (loadedSurface == NULL)
     {
         ok = false;
-        printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
+        print_error("Unable to load image! SDL_image Error: ");
+        write_error("Unable to load image! SDL_image Error: ");
     }
     else
     {
@@ -19,7 +20,8 @@ Texture::Texture(const std::string& path, SDL_Renderer* renderer):
         if (texture == NULL)
         {
             ok = false;
-            printf("Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+            print_error("Unable to load image! SDL_image Error: ");
+            write_error("Unable to load image! SDL_image Error: ");
         }
 
         SDL_Point size;
