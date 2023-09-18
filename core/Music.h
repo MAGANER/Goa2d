@@ -1,3 +1,10 @@
+/*!
+\file
+\brief class to load and play big wav files
+\author Maganer
+\version 0.2
+\date 18.09.2023
+*/
 #include"Definitors.hpp"
 #ifdef USE_SDL_AUDIO
 
@@ -11,6 +18,13 @@ namespace Goat2d
 {
 namespace core
 {
+
+
+	/*!
+	\brief class to load and play big wav files
+	\author MAGANER
+	\date 18.09.2023
+	*/
 	class Music : public Audio
 	{
 		Mix_Music* buffer = nullptr;

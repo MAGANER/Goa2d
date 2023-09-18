@@ -1,3 +1,10 @@
+/*!
+\file
+\brief class to load and play short wav files
+\author Maganer
+\version 0.2
+\date 18.09.2023
+*/
 #include"Definitors.hpp"
 #ifdef USE_SDL_AUDIO
 
@@ -9,6 +16,11 @@ namespace Goat2d
 {
 namespace core
 {
+	/*!
+	\brief abstract class to play short sound files
+	\author MAGANER
+	\date 10.09.2023
+	*/
 	class Sound: public Audio
 	{
 		Mix_Chunk* buffer = nullptr;
@@ -37,12 +49,15 @@ namespace core
 		}
 
 
+		//! this function can't be used, since sounds should be short and there is not need to pause
 		[[deprecated("There is no need to pause sounds!")]]
 		void pause() override{return;}
 
+		//! this function can't be used, since sounds should be short and there is not need to stop
 		[[deprecated("There is no need to stop sounds!")]]
 		void stop() override{return;}
 
+		//! this function can't be used, since sounds should be short and there is not need to resume
 		[[deprecated("There is no need to stop sounds!")]]
 		void resume() override { return; }
 	};
