@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['wait_0',['wait',['../class_goat2d_1_1core_1_1_game_window.html#a6e1c7180daaf554b080445d34a7bde64',1,'Goat2d::core::GameWindow']]],
-  ['write_5ferror_1',['write_error',['../namespace_goat2d_1_1core.html#ab8d32621226325d09e4939041f9d71d1',1,'Goat2d::core']]],
-  ['write_5frelease_5fto_5fzip_2',['write_release_to_zip',['../namespaceinstall.html#a4156dc6071df6bcbde9c30fd75151f6e',1,'install']]]
+  ['vector2_0',['vector2',['../struct_goat2d_1_1core_1_1_vector2.html#a77efeba4e1f3e67e784fd6ec009dd5c5',1,'Goat2d::core::Vector2::Vector2()'],['../struct_goat2d_1_1core_1_1_vector2.html#a04c258f7ac49f3cba21ac98754a554d1',1,'Goat2d::core::Vector2::Vector2(T x, T y)'],['../struct_goat2d_1_1core_1_1_vector2.html#a29e94bbc925f8b71013dec67ffa2c497',1,'Goat2d::core::Vector2::Vector2(const Vector2 &amp;vec)']]]
 ];

@@ -6,5 +6,6 @@ var searchData=
   ['baseevent_3c_20predicat_5ft_2c_20simple_5fcallback_5ft_20_3e_3',['BaseEvent&lt; predicat_t, simple_callback_t &gt;',['../class_goat2d_1_1framework_1_1_base_event.html',1,'Goat2d::framework']]],
   ['basescene_4',['basescene',['../class_goat2d_1_1framework_1_1_base_scene.html',1,'Goat2d::framework::BaseScene'],['../class_goat2d_1_1framework_1_1_base_scene.html#a1db8f9958e2a0a7f48300943c39e4255',1,'Goat2d::framework::BaseScene::BaseScene()']]],
   ['begin_5fend_5',['begin_end',['../namespace_goat2d_1_1core.html#a4432a85e881599054d504ebf8041f17e',1,'Goat2d::core']]],
-  ['built_20with_6',['Built With',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md1',1,'']]]
+  ['buffer_6',['buffer',['../class_goat2d_1_1core_1_1_music.html#ad31ab8dd82be93f98188fcf608ede349',1,'Goat2d::core::Music::buffer'],['../class_goat2d_1_1core_1_1_sound.html#abde7d307e5505839d99dddea956dfa14',1,'Goat2d::core::Sound::buffer']]],
+  ['built_20with_7',['Built With',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md1',1,'']]]
 ];

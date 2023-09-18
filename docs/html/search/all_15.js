@@ -1,9 +1,18 @@
 var searchData=
 [
-  ['unzip_0',['unzip',['../namespaceinstall.html#ac2a89496a1b2dd5f97528895ded4d7e6',1,'install']]],
-  ['update_5fpos_1',['update_pos',['../class_goat2d_1_1core_1_1_drawable_object.html#a4368904286da84d703053686fe14e3b7',1,'Goat2d::core::DrawableObject::update_pos()'],['../class_goat2d_1_1core_1_1_line.html#a2956d5ccfc76131f29a29c8ae87bd078',1,'Goat2d::core::Line::update_pos(const Vector2i &amp;new_pos) override'],['../class_goat2d_1_1core_1_1_line.html#ad4a13867ffcfe3b1773e81bf7371f804',1,'Goat2d::core::Line::update_pos(const Vector2i &amp;new_pos_begin, const Vector2i &amp;new_pos_end)'],['../class_goat2d_1_1core_1_1_point.html#a53730cc6bd00cd216c08d48e679f5260',1,'Goat2d::core::Point::update_pos()'],['../class_goat2d_1_1core_1_1_rectangle.html#a751d14f753db75260ecf3424943ffa9a',1,'Goat2d::core::Rectangle::update_pos()'],['../class_goat2d_1_1core_1_1_text.html#a2c7c548bcb35f120ed9d6c31a223854b',1,'Goat2d::core::Text::update_pos(const Vector2i &amp;new_pos) override']]],
-  ['update_5ftext_2',['update_text',['../class_goat2d_1_1core_1_1_text.html#a21bd5dc3de808cdaf28a49cf2c8be7c2',1,'Goat2d::core::Text']]],
-  ['use_5fsdl_5fimg_3',['USE_SDL_IMG',['../_definitors_8hpp.html#a2871f1d676f7392c755ffd8e9104406f',1,'Definitors.hpp']]],
-  ['use_5fsdl_5fttf_4',['USE_SDL_TTF',['../_definitors_8hpp.html#ab34a8a4992d07c8a2f9d39f6d2dc84ae',1,'Definitors.hpp']]],
-  ['used_20goat2d_5',['Projects that used Goat2d',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md2',1,'']]]
+  ['text_0',['text',['../class_goat2d_1_1core_1_1_text.html',1,'Goat2d::core::Text'],['../class_goat2d_1_1core_1_1_text.html#a68b5fc091f7e605109eb9a744f3c7175',1,'Goat2d::core::Text::Text()']]],
+  ['text_2ecpp_1',['Text.cpp',['../_text_8cpp.html',1,'']]],
+  ['text_2eh_2',['Text.h',['../_text_8h.html',1,'']]],
+  ['text_5ftexture_3',['text_texture',['../class_goat2d_1_1core_1_1_text.html#a6d4a71f7a0e118fd73c01161471969a6',1,'Goat2d::core::Text']]],
+  ['texture_2ecpp_4',['Texture.cpp',['../_texture_8cpp.html',1,'']]],
+  ['texture_2eh_5',['Texture.h',['../_texture_8h.html',1,'']]],
+  ['that_20used_20goat2d_6',['Projects that used Goat2d',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md2',1,'']]],
+  ['the_20project_7',['About The Project',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md0',1,'']]],
+  ['timer_8',['timer',['../class_goat2d_1_1core_1_1_timer.html',1,'Goat2d::core::Timer'],['../class_goat2d_1_1core_1_1_timer.html#afb0e83acfdc33aee14a910093dab20d9',1,'Goat2d::core::Timer::Timer()']]],
+  ['timer_2ecpp_9',['Timer.cpp',['../_timer_8cpp.html',1,'']]],
+  ['timer_2eh_10',['Timer.h',['../_timer_8h.html',1,'']]],
+  ['title_11',['title',['../struct_goat2d_1_1core_1_1_game_window_setting.html#adb54488550f4d8c5d51f9df72f804885',1,'Goat2d::core::GameWindowSetting']]],
+  ['top_5fdir_12',['top_dir',['../namespaceinstall.html#a8bd7508a5faf310df2721b111b80ae3a',1,'install']]],
+  ['true_5ffullscreen_13',['true_fullscreen',['../struct_goat2d_1_1core_1_1_game_window_setting.html#afdb6f6a744168f3b597b1475e8b4ce5d',1,'Goat2d::core::GameWindowSetting']]],
+  ['type_14',['type',['../class_goat2d_1_1framework_1_1_base_event.html#a55ba5dde8e0eff646de0dbab7cd1b32d',1,'Goat2d::framework::BaseEvent']]]
 ];

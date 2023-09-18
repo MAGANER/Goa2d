@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['vector_2eh_0',['Vector.h',['../_vector_8h.html',1,'']]],
-  ['vector2_1',['vector2',['../struct_goat2d_1_1core_1_1_vector2.html',1,'Goat2d::core::Vector2&lt; T &gt;'],['../struct_goat2d_1_1core_1_1_vector2.html#a77efeba4e1f3e67e784fd6ec009dd5c5',1,'Goat2d::core::Vector2::Vector2()'],['../struct_goat2d_1_1core_1_1_vector2.html#a04c258f7ac49f3cba21ac98754a554d1',1,'Goat2d::core::Vector2::Vector2(T x, T y)'],['../struct_goat2d_1_1core_1_1_vector2.html#a29e94bbc925f8b71013dec67ffa2c497',1,'Goat2d::core::Vector2::Vector2(const Vector2 &amp;vec)']]],
-  ['vector2_3c_20int_20_3e_2',['Vector2&lt; int &gt;',['../struct_goat2d_1_1core_1_1_vector2.html',1,'Goat2d::core']]],
-  ['vector2f_3',['Vector2f',['../namespace_goat2d_1_1core.html#a24c9ee9698e5362e6d0bb24cd0f75693',1,'Goat2d::core']]],
-  ['vector2i_4',['Vector2i',['../namespace_goat2d_1_1core.html#a175a3fd784765d3c7ae86ad594e6a873',1,'Goat2d::core']]],
-  ['version_200_201_20current_5',['Version 0.1(current)',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md7',1,'']]],
-  ['version_200_202_6',['Version 0.2',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md8',1,'']]],
-  ['versions_20and_20related_20features_7',['Versions and related features',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md6',1,'']]]
+  ['unzip_0',['unzip',['../namespaceinstall.html#ac2a89496a1b2dd5f97528895ded4d7e6',1,'install']]],
+  ['update_5fpos_1',['update_pos',['../class_goat2d_1_1core_1_1_drawable_object.html#a4368904286da84d703053686fe14e3b7',1,'Goat2d::core::DrawableObject::update_pos()'],['../class_goat2d_1_1core_1_1_line.html#a2956d5ccfc76131f29a29c8ae87bd078',1,'Goat2d::core::Line::update_pos(const Vector2i &amp;new_pos) override'],['../class_goat2d_1_1core_1_1_line.html#ad4a13867ffcfe3b1773e81bf7371f804',1,'Goat2d::core::Line::update_pos(const Vector2i &amp;new_pos_begin, const Vector2i &amp;new_pos_end)'],['../class_goat2d_1_1core_1_1_point.html#a53730cc6bd00cd216c08d48e679f5260',1,'Goat2d::core::Point::update_pos()'],['../class_goat2d_1_1core_1_1_rectangle.html#a751d14f753db75260ecf3424943ffa9a',1,'Goat2d::core::Rectangle::update_pos()'],['../class_goat2d_1_1core_1_1_text.html#a2c7c548bcb35f120ed9d6c31a223854b',1,'Goat2d::core::Text::update_pos(const Vector2i &amp;new_pos) override']]],
+  ['update_5ftext_2',['update_text',['../class_goat2d_1_1core_1_1_text.html#a21bd5dc3de808cdaf28a49cf2c8be7c2',1,'Goat2d::core::Text']]],
+  ['use_5fsdl_5faudio_3',['USE_SDL_AUDIO',['../_definitors_8hpp.html#aac61d022f787e69954a755521d5c24d7',1,'Definitors.hpp']]],
+  ['use_5fsdl_5fimg_4',['USE_SDL_IMG',['../_definitors_8hpp.html#a2871f1d676f7392c755ffd8e9104406f',1,'Definitors.hpp']]],
+  ['use_5fsdl_5fttf_5',['USE_SDL_TTF',['../_definitors_8hpp.html#ab34a8a4992d07c8a2f9d39f6d2dc84ae',1,'Definitors.hpp']]],
+  ['used_20goat2d_6',['Projects that used Goat2d',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md2',1,'']]]
 ];

@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['point_0',['point',['../class_goat2d_1_1core_1_1_point.html#aae5fadbcf8df4522fe84ff424fc15893',1,'Goat2d::core::Point::Point(const Vector2i &amp;pos, SDL_Renderer *renderer)'],['../class_goat2d_1_1core_1_1_point.html#a335b247512d1d74aeb5611652e19c2e6',1,'Goat2d::core::Point::Point(const Vector2i &amp;pos, const Color &amp;color, SDL_Renderer *renderer)']]],
-  ['print_5fdelim_1',['print_delim',['../namespaceinstall.html#afb9352971b269074dc7e3785dec36d12',1,'install']]],
-  ['print_5ferror_2',['print_error',['../namespace_goat2d_1_1core.html#a36b29e4698ab5f46df4ab4ebcc8089f8',1,'Goat2d::core']]],
-  ['process_3',['process',['../class_goat2d_1_1framework_1_1_base_event.html#a3455aa684f64305d399bc31b5ac3c4b5',1,'Goat2d::framework::BaseEvent::process(void *event)=0'],['../class_goat2d_1_1framework_1_1_base_event.html#a1d9ee2f99d656202dfb9fd285dfb45cd',1,'Goat2d::framework::BaseEvent::process()=0'],['../class_goat2d_1_1framework_1_1_keyboard_event.html#adc7d1acd75d21f18215a22e3b56e17b9',1,'Goat2d::framework::KeyboardEvent::process(void *e) override'],['../class_goat2d_1_1framework_1_1_keyboard_event.html#a284cb86649a0e66d9abd5607dea63e44',1,'Goat2d::framework::KeyboardEvent::process() override'],['../class_goat2d_1_1framework_1_1_simple_event.html#adce0aa8417a4cdc3bf7a3027a698656b',1,'Goat2d::framework::SimpleEvent::process() override'],['../class_goat2d_1_1framework_1_1_simple_event.html#ad791833f923e18d6a2fcee2601d00384',1,'Goat2d::framework::SimpleEvent::process(void *e) override']]],
-  ['process_5fgame_5fevents_4',['process_game_events',['../class_goat2d_1_1framework_1_1_base_scene.html#ad5e4f185617ddc0fea2518cf44310e35',1,'Goat2d::framework::BaseScene::process_game_events()'],['../class_goat2d_1_1framework_1_1_scene_manager.html#ad42bdbddd54ed021411397b56f38d9ae',1,'Goat2d::framework::SceneManager::process_game_events()']]],
-  ['process_5fkeyboard_5fevents_5',['process_keyboard_events',['../class_goat2d_1_1framework_1_1_base_scene.html#aa0899a7437a470e41c13ed91e81dccdd',1,'Goat2d::framework::BaseScene::process_keyboard_events()'],['../class_goat2d_1_1framework_1_1_scene_manager.html#a6104272ed56b2601fc555cfae864f2e5',1,'Goat2d::framework::SceneManager::process_keyboard_events()']]]
+  ['operator_2a_0',['operator*',['../struct_goat2d_1_1core_1_1_vector2.html#aaf1adc45b1a682bd08bca735b2d0810f',1,'Goat2d::core::Vector2']]],
+  ['operator_2b_1',['operator+',['../struct_goat2d_1_1core_1_1_vector2.html#a9fea4c24061b3e1906b35c6488aede19',1,'Goat2d::core::Vector2']]],
+  ['operator_2d_2',['operator-',['../struct_goat2d_1_1core_1_1_vector2.html#ad7592c0b7c27722ddaf2b1f8351960ae',1,'Goat2d::core::Vector2']]],
+  ['operator_3d_3',['operator=',['../struct_goat2d_1_1core_1_1_vector2.html#aa747aa8d090f29eb57e8f7174d4aa0f0',1,'Goat2d::core::Vector2']]],
+  ['operator_3d_3d_4',['operator==',['../namespace_goat2d_1_1core.html#a7ee173a24ea0ab52dea015627dcceacc',1,'Goat2d::core']]]
 ];
