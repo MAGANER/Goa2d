@@ -166,6 +166,10 @@ namespace core
 		//! special hard coded event : press X to close window
 		framework::KeyboardEvent* quit_event = nullptr;
 
+
+		//! these keyboard events can be invoked in every scene of game
+		std::list<framework::KeyboardEvent*> global_keyboard_events;
+
 		//! time from starting SDL systems
 		Uint32  start; 
 
@@ -200,6 +204,9 @@ namespace core
 
 		//! change default window's icon to custom one
 		bool set_icon(const std::string& icon_image_path);
+
+		//! add keyboard event that is common for all games(set on/off fullscreen for example)
+		void add_global_keyboard_event(framework::KeyboardEvent* event);
 	private:
 
 		//! create quit event used by window

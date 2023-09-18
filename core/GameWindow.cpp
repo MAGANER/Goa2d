@@ -148,6 +148,9 @@ void GameWindow::run()
 		{
 			quit_event->process(static_cast<void*>(&e));
 			process_keyboard_events(e);
+
+			for (auto& event : global_keyboard_events)
+				event->process(static_cast<void*>(&e));
 		}
 		process_game_events();
 
@@ -270,4 +273,8 @@ bool GameWindow::set_icon(const std::string& icon_image_path)
 
 	SDL_SetWindowIcon(window, icon);
 	return true;
+}
+void GameWindow::add_global_keyboard_event(framework::KeyboardEvent* event)
+{
+	global_keyboard_events.push_back(event);
 }
