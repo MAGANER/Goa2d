@@ -148,7 +148,7 @@ Note: i can add new features to next version's list as time goes by.
 - [x] Creation of fully customized window with icons, dynamic resiing and fullscreen
 - [ ] mouse events support
 - [x] audio processing
-- [ ] sprite tileset processing
+- [x] sprite tileset processing
 - [ ] script to build framework as library
 - [ ] Camera
 - [x] Timer
