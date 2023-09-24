@@ -42,22 +42,22 @@ namespace core
 		}
 
 		//! default = operator
-		Vector2& operator=(const Vector2& vec) = default;
+		constexpr Vector2& operator=(const Vector2& vec) = default;
 
 		//! add 2 vectors and return new vector
-		Vector2 operator+(const Vector2& vec)
+		constexpr Vector2 operator+(const Vector2& vec)
 		{
 			return Vector2(x + vec.x, y + vec.y);
 		}
 
 		//! substract 2 vectors and return new vector
-		Vector2 operator-(const Vector2& vec)
+		constexpr Vector2 operator-(const Vector2& vec)
 		{
 			return Vector2(x - vec.x, y - vec.y);
 		}
 
 		//! multiply vector by number and return new vector
-		Vector2 operator*(T number)
+		constexpr Vector2 operator*(T number)
 		{
 			return Vector2(x * number, y * number);
 		}
@@ -66,7 +66,7 @@ namespace core
 
 	//! compares two vectors and returns True if there are the same, else False
 	template<class T>
-	bool operator==(const Vector2<T>& a, const Vector2<T>& b)
+	constexpr bool operator==(const Vector2<T>& a, const Vector2<T>& b)
 	{
 		return a.x == b.x and a.y == b.y;
 	}
