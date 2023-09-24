@@ -35,7 +35,12 @@ namespace core
 	 */
 	static inline void copy_color(Color* dest, Color* source)
 	{
-		//TODO::add checks if those pointers aren't nulls
+		if (dest == nullptr or source == nullptr)
+		{
+			print_error("can't copy color because pointer is nullptr!");
+			write_error("can't copy color because pointer is nullptr!");
+			return;
+		}
 
 		dest->r = source->r;
 		dest->g = source->g;
@@ -53,6 +58,12 @@ namespace core
 	 */
 	static inline bool compare_colors(Color* a, Color* b)
 	{
+		if (a == nullptr or b == nullptr)
+		{
+			print_error("can't compare colors because some of them is nullptr!");
+			write_error("can't compare colors because some of them is nullptr!");
+			return false;
+		}
 		return a->r == b->r and
 			   a->b == b->b and
 			   a->g == b->g and
@@ -60,4 +71,13 @@ namespace core
 	}
 };
 };
+
+#define BLACK   Goat2d::core::Color(.r=0,  .g=0,  .b=0,   .a=0)
+#define WHITE   Goat2d::core::Color(.r=255,.g=255,.b=255, .a=255)
+#define RED     Goat2d::core::Color(.r=255,.g=0,  .b=0,   .a=255)
+#define GREEN   Goat2d::core::Color(.r=0,  .g=255,.b=0,   .a=255)
+#define	BLUE    Goat2d::core::Color(.r=0,  .g=0,  .b=255, .a=255)
+#define YELLOW  Goat2d::core::Color(.r=255,.g=255,.b=0,   .a=255)
+#define MAGENTA Goat2d::core::Color(.r=255,.g=0,  .b=255, .a=255)
+#define CYAN    Goat2d::core::Color(.r=0,  .g=255,.b=255, .a=255)
 #endif
