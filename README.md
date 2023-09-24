@@ -152,6 +152,7 @@ Note: i can add new features to next version's list as time goes by.
 - [ ] script to build framework as library
 - [ ] Camera
 - [x] Timer
+- [x] Standard default colors available as def-macros
 
 <!-- CONTRIBUTING 
 ## Contributing
