@@ -59,9 +59,9 @@ void Tileset::split_tiles(const SDL_Point& size, const Vector2i& tile_size)
     auto width = size.x / tile_size.x;
 
     Vector2i curr_pos;
-    for (size_t y = 0; y < height; y++)
+    for (auto y: v::iota(height))
     {
-        for (size_t x = 0; x < width; x++)
+        for (auto x: v::iota(width))
         {
             tiles.push_back(SDL_Rect{ .x = curr_pos.x,.y = curr_pos.y,.w = tile_size.x,.h = tile_size.y });
             curr_pos.x += tile_size.x;

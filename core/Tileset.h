@@ -7,6 +7,7 @@
 #include<tuple>
 #include<string>
 #include<vector>
+#include<ranges>
 
 #include"Vector.h"
 #include"core/ErrorLogger.h"
@@ -16,6 +17,7 @@ namespace Goat2d
 {
 namespace core
 {
+	namespace v = std::ranges::views;
 	class Tileset
 	{
 		//! pixel data
