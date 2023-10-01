@@ -2,6 +2,7 @@ import requests
 import json
 import os
 import subprocess
+import sys
 
 top_dir = os.getcwd() # the directory, where script was invoked
 
@@ -152,24 +153,17 @@ def get_sdl_ttf():
 ##############################
 
 
-def get_input(prompt):
-    s = input(prompt+"(Y/n)")
-    if s == "Y":
-        return True
-    elif s == "n":
-        return False
+for arg in sys.argv[1:]:
+    if arg == "SDL":
+        get_sdl()
+        os.chdir(top_dir)
+    elif arg == "ttf":
+        get_sdl_ttf()
+        os.chdir(top_dir)
+    elif arg == "img":
+        get_sdl_img()
+        os.chdir(top_dir)
     else:
-        get_input(prompt)
-
-
-
-#the main dependency for Goat2D
-if get_input("would you like to install SDL library?"):
-    get_sdl()
-
-if get_input("would you like to install SDL_image library?"):
-    os.chdir(top_dir)
-    get_sdl_img()
-if get_input("would you like to install SDL_ttf library?"):
-    os.chdir(top_dir)
-    get_sdl_ttf()
+        print("usage example: install.py [SDL] [ttf] [img]")
+        print("you should pass at least one argument to download")
+        exit(0)
