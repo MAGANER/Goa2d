@@ -13,6 +13,7 @@ have handy functions to work with raw C structures.
 #ifndef COLOR_H
 #define COLOR_H
 #include"SDL.h"
+#include"ErrorLogger.h"
 
 //! whole framework
 namespace Goat2d

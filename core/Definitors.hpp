@@ -13,12 +13,12 @@ Comment or uncomment macroses if you need or don't need mentioned library.
 #define DEFINITORS_H
 
 //! give an ability to use sdl font library
-#define USE_SDL_TTF
+//#define USE_SDL_TTF
 
 //! give an ability to use sdl image library
-#define USE_SDL_IMG
+//#define USE_SDL_IMG
 
 //! give an ability to use sdl audio library
-#define USE_SDL_AUDIO
+//#define USE_SDL_AUDIO
 
 #endif

@@ -13,9 +13,7 @@ Every drawable entity must be inherited from this class.
 #define DRAWABLE_OBJECT_H
 
 #include"SDL.h"
-#include"SDL_image.h"
 #include"Vector.h"
-
 namespace Goat2d
 {
 namespace core
