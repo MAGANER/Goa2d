@@ -126,6 +126,12 @@ GameWindow::~GameWindow()
 }
 void GameWindow::run()
 {
+	if (get_current_scene_id() == -1)
+	{
+		::print_error("GameWindow error: no scene added!\n");
+		::write_error("GameWindow error: no scene added!\n");
+		exit(-1);
+	}
 	//main game cycle
 
 	//check and process keyboard events

@@ -13,6 +13,7 @@ have handy functions to work with raw C structures.
 #ifndef COLOR_H
 #define COLOR_H
 #include"SDL.h"
+#include"ErrorLogger.h"
 
 //! whole framework
 namespace Goat2d
@@ -72,12 +73,12 @@ namespace core
 };
 };
 
-#define BLACK   Goat2d::core::Color(.r=0,  .g=0,  .b=0,   .a=0)
-#define WHITE   Goat2d::core::Color(.r=255,.g=255,.b=255, .a=255)
-#define RED     Goat2d::core::Color(.r=255,.g=0,  .b=0,   .a=255)
-#define GREEN   Goat2d::core::Color(.r=0,  .g=255,.b=0,   .a=255)
-#define	BLUE    Goat2d::core::Color(.r=0,  .g=0,  .b=255, .a=255)
-#define YELLOW  Goat2d::core::Color(.r=255,.g=255,.b=0,   .a=255)
-#define MAGENTA Goat2d::core::Color(.r=255,.g=0,  .b=255, .a=255)
-#define CYAN    Goat2d::core::Color(.r=0,  .g=255,.b=255, .a=255)
+#define BLACK   Goat2d::core::Color{.r=0,  .g=0,  .b=0,   .a=0}
+#define WHITE   Goat2d::core::Color{.r=255,.g=255,.b=255, .a=255}
+#define RED     Goat2d::core::Color{.r=255,.g=0,  .b=0,   .a=255}
+#define GREEN   Goat2d::core::Color{.r=0,  .g=255,.b=0,   .a=255}
+#define	BLUE    Goat2d::core::Color{.r=0,  .g=0,  .b=255, .a=255}
+#define YELLOW  Goat2d::core::Color{.r=255,.g=255,.b=0,   .a=255}
+#define MAGENTA Goat2d::core::Color{.r=255,.g=0,  .b=255, .a=255}
+#define CYAN    Goat2d::core::Color{.r=0,  .g=255,.b=255, .a=255}
 #endif

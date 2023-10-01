@@ -20,6 +20,10 @@
 #include"SDL_mixer.h"
 #endif
 
+#ifdef USE_SDL_IMG
+#include "SDL_image.h"
+#endif
+
 #include"framework/SceneManager.h"
 #include"ErrorLogger.h"
 

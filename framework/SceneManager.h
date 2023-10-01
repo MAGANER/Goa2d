@@ -79,6 +79,8 @@ namespace framework
 
 		//! change current scene to another one
 		bool change_scene(int id_scene);
+
+		inline int get_current_scene_id()const { return current_scene_id; }
 	};
 };
 };

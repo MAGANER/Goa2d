@@ -46,8 +46,8 @@ namespace core
 			font = TTF_OpenFont(path.c_str(), font_size);
 			if (font == NULL)
 			{
-				print_error("Failed to load lazy font! SDL_ttf Error:");
-				write_error("Failed to load lazy font! SDL_ttf Error:");
+				print_error("Failed to load font! SDL_ttf Error:");
+				write_error("Failed to load font! SDL_ttf Error:");
 				ok = false;
 			}
 		}
