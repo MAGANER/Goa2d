@@ -47,8 +47,7 @@ Tileset::Tileset(const std::string& path, const Vector2i& tile_size, SDL_Rendere
 }
 Tileset::~Tileset()
 {
-    if (texture == nullptr)
-        delete texture;
+    SDL_DestroyTexture(texture);
 
     if (drawing_rect == nullptr)
         delete drawing_rect;
