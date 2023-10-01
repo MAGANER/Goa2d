@@ -8,6 +8,7 @@
 
 #include"core/Definitors.hpp"
 #ifdef USE_SDL_IMG
+#include "SDL_image.h"
 
 #ifndef TEXTURE_H
 #define TEXTURE_H
