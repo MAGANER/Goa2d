@@ -43,6 +43,9 @@ namespace core
 
 		//! filling color
 		Color color;
+
+		//! string that will be renderered
+		std::string text;
 	public:
 
 		/*!
@@ -66,14 +69,17 @@ namespace core
 		//! set new top left corner position
 		void update_pos(const Vector2i& new_pos) override;
 
-		//! set new filling color
-		void set_color(const Color& color);
+		//! apply new color to existing one
+		void set_color_mod(const Color& color);
 
 		//! returns creation status
 		bool is_ok()const { return ok; }
 
-		//! recreate Text object with new string
+		//! recreate Text object with new string(change color)
 		Text* update_text(const std::string& text);
+
+		//! recreate Text object with new color(change color)
+		Text* update_text(const Color& color);	
 	};
 };
 };

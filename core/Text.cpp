@@ -8,11 +8,11 @@ Text::Text(const Font& font,
 		   const Vector2i& pos,
 		   SDL_Renderer* renderer,
 		   const Color& color)
-					:DrawableObject(renderer)
+					:DrawableObject(renderer),
+					 font(const_cast<Font*>(&font)),
+					 color(color),
+					 text(text)
 {
-	this->font = const_cast<Font*>(&font);
-	this->color = color;
-
 	SDL_Surface* surface = TTF_RenderText_Solid(const_cast<TTF_Font*>(font.get_font()), 
 												text.c_str(), color);
 	if (surface == NULL)
@@ -63,7 +63,7 @@ void Text::update_pos(const Vector2i& new_pos)
 {
 	pos = new_pos;
 }
-void Text::set_color(const Color& color)
+void Text::set_color_mod(const Color& color)
 {
 	SDL_SetTextureColorMod(text_texture, color.r, color.g, color.b);
 }
@@ -72,6 +72,12 @@ Text* Text::update_text(const std::string& text)
 	SDL_DestroyTexture(text_texture);
 	delete rect;
 
+	return new Text(*font, text, pos, renderer, color);
+}
+Text* Text::update_text(const Color& color)
+{
+	SDL_DestroyTexture(text_texture);
+	delete rect;
 	return new Text(*font, text, pos, renderer, color);
 }
 #endif
