@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['scenes_0',['scenes',['../class_goat2d_1_1framework_1_1_scene_manager.html#a700725c260ca559b0750b3f0714e55b1',1,'Goat2d::framework::SceneManager']]],
-  ['sdl_5fsubsystems_1',['SDL_subsystems',['../struct_goat2d_1_1core_1_1_game_window_setting.html#a55b6f3b0d40c6b37c63aa0837a3d17ce',1,'Goat2d::core::GameWindowSetting']]],
-  ['should_5fchange_2',['should_change',['../class_goat2d_1_1framework_1_1_base_scene.html#ae968f7103814fa068c96ddba7d62abad',1,'Goat2d::framework::BaseScene']]],
-  ['size_3',['size',['../class_goat2d_1_1core_1_1_drawable_object.html#a78bfc3523128930b460a6cde00ed0a2a',1,'Goat2d::core::DrawableObject']]],
-  ['start_4',['start',['../class_goat2d_1_1core_1_1_game_window.html#a1c54e0d77437c496341bafe3fd5fbdaf',1,'Goat2d::core::GameWindow']]],
-  ['start_5fpoint_5',['start_point',['../class_goat2d_1_1core_1_1_timer.html#a43af6074ddcf7236cd79b533431e1fb4',1,'Goat2d::core::Timer']]],
-  ['state_6',['state',['../class_goat2d_1_1framework_1_1_base_event.html#ad5ade4fc73e1f49b9c1156cb37498a10',1,'Goat2d::framework::BaseEvent']]]
+  ['rect_0',['rect',['../class_goat2d_1_1core_1_1_text.html#a01b38f88415b77e36ee4212428a13008',1,'Goat2d::core::Text']]],
+  ['renderer_1',['renderer',['../class_goat2d_1_1core_1_1_drawable_object.html#aa42a4e9f1e9636d2b9f6bcedcba01df1',1,'Goat2d::core::DrawableObject::renderer'],['../class_goat2d_1_1core_1_1_game_window.html#ae2ca4961fa1986582c156195c3a247a7',1,'Goat2d::core::GameWindow::renderer'],['../class_goat2d_1_1framework_1_1_base_scene.html#ab793dd95785b9ab5ee8fdfdd936111e3',1,'Goat2d::framework::BaseScene::renderer']]],
+  ['resizable_2',['resizable',['../struct_goat2d_1_1core_1_1_game_window_setting.html#a22c1125f836fab0eaf78a845e97ab39c',1,'Goat2d::core::GameWindowSetting']]],
+  ['return_5fvalue_3',['return_value',['../class_goat2d_1_1framework_1_1_base_scene.html#a15d183a3ca4d84919da009a2c1776d61',1,'Goat2d::framework::BaseScene']]]
 ];

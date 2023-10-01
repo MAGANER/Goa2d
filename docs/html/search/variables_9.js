@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['pos_0',['pos',['../class_goat2d_1_1core_1_1_drawable_object.html#ad06ac294e49b6f0c7552449389389e63',1,'Goat2d::core::DrawableObject']]],
-  ['predicat_1',['predicat',['../class_goat2d_1_1framework_1_1_base_event.html#a428e90ac22de4bc491c9063efa3dd51e',1,'Goat2d::framework::BaseEvent']]],
-  ['predicat_5fevent_5fto_5fcheck_2',['predicat_event_to_check',['../class_goat2d_1_1framework_1_1_simple_event.html#a801b48eb351abead3fa5ba425548a046',1,'Goat2d::framework::SimpleEvent']]],
-  ['print_5ferror_3',['print_error',['../class_goat2d_1_1core_1_1_game_window.html#ab3203c30fa4b2a6df582e34d35d03482',1,'Goat2d::core::GameWindow']]]
+  ['ok_0',['ok',['../class_goat2d_1_1core_1_1_audio.html#acaf754e3d778d4967b152bebbfc9ef2a',1,'Goat2d::core::Audio::ok'],['../class_goat2d_1_1core_1_1_font.html#aa26891c7ee4d1fe9878fa30c779ce9d1',1,'Goat2d::core::Font::ok'],['../class_goat2d_1_1core_1_1_game_window.html#aff9f43af8c2864c423337f2c40aa3820',1,'Goat2d::core::GameWindow::ok'],['../class_goat2d_1_1core_1_1_text.html#a8be0c348e64d299bf44e4adadabdc5a0',1,'Goat2d::core::Text::ok']]],
+  ['outline_1',['outline',['../class_goat2d_1_1core_1_1_rectangle.html#a72a93c4c8fe1f7b47d98f7256ccff8ce',1,'Goat2d::core::Rectangle']]],
+  ['outline_5fcolor_2',['outline_color',['../class_goat2d_1_1core_1_1_rectangle.html#a95f3cf33efa34cebb974649e1ce96146',1,'Goat2d::core::Rectangle']]]
 ];

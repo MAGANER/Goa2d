@@ -17,5 +17,6 @@ var searchData=
   ['create_5fwhite_5fpoint_14',['create_white_point',['../class_goat2d_1_1framework_1_1_base_scene.html#ad11b7e9b3c19eada9bc79b894ddf7084',1,'Goat2d::framework::BaseScene']]],
   ['current_15',['Version 0.1(current)',['../md__e_1_2cpp__projects_2_goat2d_2_r_e_a_d_m_e.html#autotoc_md7',1,'']]],
   ['current_5fscene_16',['current_scene',['../class_goat2d_1_1framework_1_1_scene_manager.html#af0e13e53a9ef99ba3db6f3b8cd39af37',1,'Goat2d::framework::SceneManager']]],
-  ['current_5fscene_5fid_17',['current_scene_id',['../class_goat2d_1_1framework_1_1_scene_manager.html#a808127ed643f0524a79ede90089469e5',1,'Goat2d::framework::SceneManager']]]
+  ['current_5fscene_5fid_17',['current_scene_id',['../class_goat2d_1_1framework_1_1_scene_manager.html#a808127ed643f0524a79ede90089469e5',1,'Goat2d::framework::SceneManager']]],
+  ['cyan_18',['CYAN',['../_color_8h.html#ad243f93c16bc4c1d3e0a13b84421d760',1,'Color.h']]]
 ];
