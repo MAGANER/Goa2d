@@ -79,7 +79,10 @@ namespace core
 		Text* update_text(const std::string& text);
 
 		//! recreate Text object with new color(change color)
-		Text* update_text(const Color& color);	
+		Text* update_text(const Color& color);
+
+		//! return color
+		Color const& get_color()const { return color; }
 	};
 };
 };
