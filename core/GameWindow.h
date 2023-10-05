@@ -183,6 +183,9 @@ namespace core
 
 		//! icon for the window
 		SDL_Surface* icon = nullptr;
+
+		//! width and height, it's used to make able switching betweeen windowed and false fullscreen mode
+		core::Vector2i size;
 	public:
 		/*!
 		\brief creates window from passed setting
@@ -205,6 +208,9 @@ namespace core
 
 		//! "fake" fullscreen that takes the size of the desktop; and 0 for windowed mode
 		bool set_false_fullscreen_mode();
+
+		//! if window is fullscreen, than make it windowed else do nothing
+		bool unset_fullscreen_mode();
 
 		//! change default window's icon to custom one
 		bool set_icon(const std::string& icon_image_path);

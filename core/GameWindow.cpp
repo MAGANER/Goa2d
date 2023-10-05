@@ -1,7 +1,8 @@
 #include"GameWindow.h"
 using namespace Goat2d::core;
 
-GameWindow::GameWindow(const GameWindowSetting& setting)
+GameWindow::GameWindow(const GameWindowSetting& setting):
+	size(setting.win_size)
 {
 	print_error = setting._print_error;
 	write_error = setting._write_error;
@@ -263,6 +264,18 @@ bool GameWindow::set_false_fullscreen_mode()
 			::print_error("Failed to set fullscreen mode! SDL_Error:");
 		if (write_error)
 			::write_error("Failed to set fullscreen mode! SDL_Error:");
+		return false;
+	}
+	return true;
+}
+bool GameWindow::unset_fullscreen_mode()
+{
+	if (SDL_SetWindowFullscreen(window, 0) != 0)
+	{
+		if (print_error)
+			::print_error("Failed to unset fullscreen mode! SDL_Error:");
+		if (write_error)
+			::write_error("Failed to unset fullscreen mode! SDL_Error:");
 		return false;
 	}
 	return true;
