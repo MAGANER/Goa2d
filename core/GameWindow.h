@@ -226,7 +226,6 @@ namespace core
 		//! it's always shown, but it optionally can be fullscreen or resizable
 		Uint32 get_window_mode(const GameWindowSetting& setting);
 
-
 		//! set window mode at the creation of window
 		bool set_window_fullscreen_mode(const GameWindowSetting& setting);
 	};

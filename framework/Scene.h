@@ -86,6 +86,13 @@ namespace framework
 		//! get Window's renderer
 		SDL_Renderer* get_renderer() { return renderer; }
 
+		//! get current renderer's width and height
+		core::Vector2i get_renderer_size()const
+		{
+			int w, h;
+			SDL_GetRendererOutputSize(renderer, &w, &h);
+			return core::Vector2i(w, h);
+		}
 
 		//these functions are used by SceneManager
 		//so you don't need to call them
