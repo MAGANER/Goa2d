@@ -62,6 +62,8 @@ void Text::draw()
 void Text::update_pos(const Vector2i& new_pos)
 {
 	pos = new_pos;
+	rect->x = pos.x;
+	rect->y = pos.y;
 }
 void Text::set_color_mod(const Color& color)
 {
