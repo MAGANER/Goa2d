@@ -68,6 +68,8 @@ namespace core
 		//! "fake" fullscreen that takes the size of the desktop; and 0 for windowed mode
 		bool false_fullscreen;
 
+		//! if true, then window will be placed at center of of screen(default is false)
+		bool window_x_centered;
 
 		/*!
 		\brief creates default window's setting
@@ -82,7 +84,8 @@ namespace core
 							FPS(30),
 			                resizable(false),
 							true_fullscreen(false),
-							false_fullscreen(false)
+							false_fullscreen(false),
+							window_x_centered(false)
 		{
 			//create default game window settings
 		}
@@ -103,7 +106,8 @@ namespace core
 							FPS(setting.FPS),
 							resizable(setting.resizable),
 							true_fullscreen(setting.true_fullscreen),
-							false_fullscreen(setting.false_fullscreen)
+							false_fullscreen(setting.false_fullscreen),
+							window_x_centered(false)
 		{
 			//fully customized window setting by user based on another setting
 		}
@@ -126,7 +130,8 @@ namespace core
 						  FPS(30),
 						  resizable(false),
 						  true_fullscreen(false),
-						  false_fullscreen(false)
+						  false_fullscreen(false),
+						  window_x_centered(false)
 		{
 			//set only window size and required sdl subsystems
 		}
@@ -234,6 +239,9 @@ namespace core
 
 		//! set window mode at the creation of window
 		bool set_window_fullscreen_mode(const GameWindowSetting& setting);
+		
+		//! this function is used to make position centered if required
+		int get_screen_half_width();
 	};
 };
 };

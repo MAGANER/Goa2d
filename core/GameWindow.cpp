@@ -14,9 +14,16 @@ GameWindow::GameWindow(const GameWindowSetting& setting):
 	}
 	else
 	{
+		int x_win_pos = setting.win_pos.x;
+		if (setting.window_x_centered)
+		{
+			auto hw = get_screen_half_width();
+			x_win_pos = hw-(setting.win_size.x/2);
+		}
+
 		//Create window
 		window = SDL_CreateWindow(setting.title.c_str(),
-								  setting.win_pos.x, 
+								  x_win_pos,
 								  setting.win_pos.y,
 								  setting.win_size.x,
 								  setting.win_size.y,
@@ -296,4 +303,10 @@ bool GameWindow::set_icon(const std::string& icon_image_path)
 void GameWindow::add_global_keyboard_event(framework::KeyboardEvent* event)
 {
 	global_keyboard_events.push_back(event);
+}
+int GameWindow::get_screen_half_width()
+{
+	SDL_DisplayMode DM;
+	SDL_GetCurrentDisplayMode(0, &DM);
+	return DM.w/2;
 }
