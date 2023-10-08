@@ -56,6 +56,21 @@ namespace framework
 		
 		//! next scene id that should be executed after current one
 		int next_id = -1;
+
+	public:
+		/*
+			use it if scene needs to toggle fullscreen
+		*/
+		enum class FullscreenModes
+		{
+			None, //don't do anything
+			False,
+			True,
+			NoFullscreen
+		};
+		void toggled() { mode_to_set = FullscreenModes::None; }
+	protected:
+		FullscreenModes mode_to_set = FullscreenModes::None;
 	public:
 		/*!
 		\brief bound scene with basic information
@@ -85,6 +100,8 @@ namespace framework
 
 		//! get Window's renderer
 		SDL_Renderer* get_renderer() { return renderer; }
+
+		FullscreenModes get_fullscreen_mode_to_change() { return mode_to_set; }
 
 		//! get current renderer's width and height
 		core::Vector2i get_renderer_size()const
