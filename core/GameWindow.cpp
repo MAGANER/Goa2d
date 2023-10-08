@@ -168,6 +168,23 @@ void GameWindow::run()
 		}
 		process_game_events();
 
+		auto mode_to_toggle = should_toggle_fullscreen();
+		if (mode_to_toggle == framework::BaseScene::FullscreenModes::True)
+		{
+			set_true_fullscreen_mode();
+			toggled_fullscreen();
+		}
+		else if (mode_to_toggle == framework::BaseScene::FullscreenModes::False)
+		{
+			set_false_fullscreen_mode();
+			toggled_fullscreen();
+		}
+		else if(mode_to_toggle == framework::BaseScene::FullscreenModes::NoFullscreen)
+		{
+			unset_fullscreen_mode();
+			toggled_fullscreen();
+		}
+
 		draw();
 		wait();
 	}
