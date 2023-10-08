@@ -77,10 +77,18 @@ namespace framework
 		//! should set new scene
 		bool should_change();
 
+		
+		//! returns mode if scenes needs to toggle fullscreen, otherwise None
+		BaseScene::FullscreenModes should_toggle_fullscreen();
+
+		//! when fullscreen is changed call this procedure
+		void toggled_fullscreen();
+
 		//! change current scene to another one
 		bool change_scene(int id_scene);
 
 		inline int get_current_scene_id()const { return current_scene_id; }
+
 	};
 };
 };

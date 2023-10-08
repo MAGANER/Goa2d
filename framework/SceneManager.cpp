@@ -39,3 +39,11 @@ void SceneManager::process_game_events()
 	if (current_scene_id != -1)
 		current_scene->process_game_events();
 }
+BaseScene::FullscreenModes SceneManager::should_toggle_fullscreen()
+{
+	return current_scene->get_fullscreen_mode_to_change();
+}
+void SceneManager::toggled_fullscreen()
+{
+	current_scene->toggled();
+}
