@@ -54,19 +54,19 @@ Tileset::~Tileset()
 }
 void Tileset::split_tiles(const SDL_Point& size, const Vector2i& tile_size)
 {
-    auto height = size.y / tile_size.y;
-    auto width = size.x / tile_size.x;
+    auto height = (int)(size.y / tile_size.y);
+    auto width = (int)(size.x / tile_size.x);
 
-    Vector2i curr_pos;
-    for (auto y: v::iota(height))
+    Vector2i curr_pos(0,0);
+    for (size_t y = 0;y<height;++y)
     {
-        for (auto x: v::iota(width))
+        for (size_t x = 0;x<width;++x)
         {
             tiles.push_back(SDL_Rect{ .x = curr_pos.x,.y = curr_pos.y,.w = tile_size.x,.h = tile_size.y });
-            curr_pos.x += tile_size.x;
+            curr_pos.x = curr_pos.x + tile_size.x;
         }
         curr_pos.x = 0;
-        curr_pos.y += tile_size.y;
+        curr_pos.y = curr_pos.y + tile_size.y;
     }
 }
 bool Tileset::draw(size_t tile_code, const Vector2i& pos)
