@@ -185,7 +185,6 @@ namespace core
 		//! FPS counter
 		int  FPS;
 
-
 		//! icon for the window
 		SDL_Surface* icon = nullptr;
 

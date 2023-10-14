@@ -149,6 +149,7 @@ void GameWindow::run()
 	SDL_Event e;
 	while (!quit)
 	{
+
 		if (should_change())
 		{
 			auto next_scene_id = get_next_id();
@@ -184,6 +185,7 @@ void GameWindow::run()
 			unset_fullscreen_mode();
 			toggled_fullscreen();
 		}
+
 
 		draw();
 		wait();
@@ -225,6 +227,7 @@ void GameWindow::draw()
 									 background_color.g,
 									 background_color.b,
 									 background_color.a);
+
 	SDL_RenderClear(renderer);
 	draw_current_scene();
 	SDL_RenderPresent(renderer);
