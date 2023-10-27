@@ -58,7 +58,7 @@ namespace core
 		*/
 		Text(const Font& font,
 			 const std::string& text,
-			 const Vector2i& pos,
+			 const Vector2f& pos,
 			 SDL_Renderer* renderer,
 			 const Color& color=Color(255,255,255,255));
 		~Text();
@@ -67,7 +67,7 @@ namespace core
 		void draw() override;
 
 		//! set new top left corner position
-		void update_pos(const Vector2i& new_pos) override;
+		void update_pos(const Vector2f& new_pos) override;
 
 		//! apply new color to existing one
 		void set_color_mod(const Color& color);

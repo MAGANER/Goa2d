@@ -124,9 +124,9 @@ namespace framework
 		//! inner function to process in-game scene's events
 		void process_game_events()
 		{
-			for (auto& e : event_manager.get_conditional_events())
-				e->process();
 			for (auto& e : event_manager.get_nonconditional_events())
+				e->process();
+			for (auto& e : event_manager.get_conditional_events())
 				e->process();
 		}
 	protected:
@@ -197,7 +197,7 @@ namespace framework
 		\param[in] point position
 		\return pointer to Point class
 		*/
-		inline core::Point* create_white_point(const core::Vector2i& point)
+		inline core::Point* create_white_point(const core::Vector2f& point)
 		{
 			return new core::Point(point, renderer);
 		}
@@ -208,7 +208,7 @@ namespace framework
 		\param[in] color color to fill Point
 		\return pointer to Point class
 		*/
-		inline core::Point* create_colored_point(const core::Vector2i& point, const core::Color& color)
+		inline core::Point* create_colored_point(const core::Vector2f& point, const core::Color& color)
 		{
 			return new core::Point(point, color, renderer);
 		}
@@ -222,7 +222,7 @@ namespace framework
 		\return pointer to Text object
 		\warning you can use this function only if USE_SDL_TTF is defined in core/Definitors.h
 		*/
-		inline core::Text* create_white_text(const std::string& text,const core::Vector2i& pos, core::Font* font)
+		inline core::Text* create_white_text(const std::string& text,const core::Vector2f& pos, core::Font* font)
 		{
 			return new core::Text(*font, text, pos, renderer);
 		}
@@ -236,7 +236,7 @@ namespace framework
 		\return pointer to Text object
 		\warning you can use this function only if USE_SDL_TTF is defined in core/Definitors.h
 		*/
-		inline core::Text* create_colored_text(const std::string& text, const core::Vector2i& pos, const core::Color& color, core::Font* font)
+		inline core::Text* create_colored_text(const std::string& text, const core::Vector2f& pos, const core::Color& color, core::Font* font)
 		{
 			return new core::Text(*font, text, pos, renderer, color);
 		}

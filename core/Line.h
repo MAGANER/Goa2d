@@ -17,7 +17,7 @@ namespace Goat2d
 namespace core
 {
 	//! second value is end point and first value is beginning point
-	typedef std::pair<Vector2i, Vector2i> begin_end;
+	typedef std::pair<Vector2f, Vector2f> begin_end;
 
 
 	/*!
@@ -28,7 +28,7 @@ namespace core
 	class Line :public DrawableObject
 	{
 		//! DrawableObject's pos field is beginning point, so it's second line's point
-		Vector2i end; 
+		Vector2f end; 
 
 		//! line's color, default is white
 		Color color = Color(255, 255, 255, 255);
@@ -58,25 +58,25 @@ namespace core
 		\param[in] pos_start start point
 		\param[in] pos_end end point
 		*/
-		void draw(const Vector2i& pos_start, const Vector2i& pos_end);
+		void draw(const Vector2f& pos_start, const Vector2f& pos_end);
 
 		//! don't use this function because you need to change 2 points
 		[[deprecated]]
-		void update_pos(const Vector2i& new_pos) override { return; }
+		void update_pos(const Vector2f& new_pos) override { return; }
 
 		/*!
 		\brief change position of line
 		\param[in] new_pos_begin new position of start
 		\param[in] new_pos_end new position of end
 		*/
-		void update_pos(const Vector2i& new_pos_begin, const Vector2i& new_pos_end)
+		void update_pos(const Vector2f& new_pos_begin, const Vector2f& new_pos_end)
 		{
 			pos = new_pos_begin;
 			end = new_pos_end;
 		}
 
 		//! returns unchangable referense to end point
-		Vector2i const& get_end_pos()const { return end; }
+		Vector2f const& get_end_pos()const { return end; }
 	};
 };
 };

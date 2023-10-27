@@ -4,10 +4,11 @@ using namespace Goat2d::core;
 Rectangle::Rectangle(const rect_data& parameters,
 					 SDL_Renderer* renderer) :DrawableObject(renderer)
 {
-	fill_rect = new SDL_Rect;
+	fill_rect = new SDL_FRect;
 
 	this->pos = std::get<0>(parameters);
-	this->size = std::get<1>(parameters);
+	this->size.x = std::get<1>(parameters).x;
+	this->size.y = std::get<1>(parameters).y;
 
 	this->color = new Color;
 	auto color = std::get<2>(parameters);
@@ -22,10 +23,11 @@ Rectangle::Rectangle(const rect_data& parameters,
 					 const outline_rect_data& outline_parameters,
 					 SDL_Renderer* renderer) :DrawableObject(renderer)
 {
-	fill_rect = new SDL_Rect;
+	fill_rect = new SDL_FRect;
 
 	this->pos = std::get<0>(parameters);
-	this->size = std::get<1>(parameters);
+	this->size.x = std::get<1>(parameters).x;
+	this->size.y = std::get<1>(parameters).y;
 	
 	this->color = new Color;
 	auto color = std::get<2>(parameters);
@@ -36,7 +38,7 @@ Rectangle::Rectangle(const rect_data& parameters,
 	fill_rect->w = size.x;
 	fill_rect->h = size.y;
 
-	outline = new SDL_Rect;
+	outline = new SDL_FRect;
 	outline->w = this->size.x+outline_parameters.first * 2;
 	outline->h = this->size.y+outline_parameters.first * 2;
 	outline->x = pos.x-(outline_parameters.first);
@@ -67,13 +69,13 @@ void Rectangle::draw()
 	if (color != nullptr)
 	{
 		SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
-		SDL_RenderFillRect(renderer, fill_rect);
+		SDL_RenderFillRectF(renderer, fill_rect);
 	}
 
 	if (outline_color != nullptr)
 	{
 		SDL_SetRenderDrawColor(renderer, outline_color->r, outline_color->g, outline_color->b, outline_color->a);
-		SDL_RenderDrawRect(renderer, outline);
+		SDL_RenderDrawRectF(renderer, outline);
 	}
 }
 void Rectangle::set_color(const Color& color)

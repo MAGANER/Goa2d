@@ -52,7 +52,7 @@ namespace core
 		bool is_ok()const { return ok; }
 
 		//! set new position of left top corner
-		void update_pos(const Vector2i& new_pos)override
+		void update_pos(const Vector2f& new_pos)override
 		{
 			pos = new_pos;
 

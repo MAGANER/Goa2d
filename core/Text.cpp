@@ -5,7 +5,7 @@ using namespace Goat2d::core;
 
 Text::Text(const Font& font,
 		   const std::string& text,
-		   const Vector2i& pos,
+		   const Vector2f& pos,
 		   SDL_Renderer* renderer,
 		   const Color& color)
 					:DrawableObject(renderer),
@@ -59,7 +59,7 @@ void Text::draw()
 {
 	SDL_RenderCopy(renderer, text_texture, NULL, rect);
 }
-void Text::update_pos(const Vector2i& new_pos)
+void Text::update_pos(const Vector2f& new_pos)
 {
 	pos = new_pos;
 	rect->x = pos.x;

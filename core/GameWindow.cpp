@@ -185,8 +185,6 @@ void GameWindow::run()
 			unset_fullscreen_mode();
 			toggled_fullscreen();
 		}
-
-
 		draw();
 		wait();
 	}

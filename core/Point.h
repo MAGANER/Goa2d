@@ -31,7 +31,7 @@ namespace core
 		\param[in] pos position to place point
 		\param[in] renderer Window's renderer
 		*/
-		Point(const Vector2i& pos, SDL_Renderer* renderer);
+		Point(const Vector2f& pos, SDL_Renderer* renderer);
 
 		/*!
 		\brief Create colored point at specific position
@@ -39,7 +39,7 @@ namespace core
 		\param[in] color specific color to fill point
 		\param[in] renderer Window's renderer
 		*/
-		Point(const Vector2i& pos, const Color& color, SDL_Renderer* renderer);
+		Point(const Vector2f& pos, const Color& color, SDL_Renderer* renderer);
 
 		~Point() {}
 
@@ -48,7 +48,7 @@ namespace core
 		void draw()override;
 
 		//! set new point's position
-		void update_pos(const Vector2i& new_pos)override;
+		void update_pos(const Vector2f& new_pos)override;
 	};
 };
 };

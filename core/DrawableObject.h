@@ -39,16 +39,17 @@ namespace core
 		~DrawableObject(){}
 
 		//! common properties of every object
-		Vector2i size, pos;
+		Vector2f pos;
+		Vector2i size;
 	public:
 		virtual void draw() = 0;
 
 		Vector2i const& get_size()const { return size; }
-		Vector2i const& get_pos()const { return pos; }
+		Vector2f const& get_pos()const { return pos; }
 
 
 		//this method is virtual because it probably changes SDL_Rect or something similar
-		virtual void update_pos(const Vector2i& new_pos) = 0;
+		virtual void update_pos(const Vector2f& new_pos) = 0;
 	};
 };
 };

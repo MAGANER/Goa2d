@@ -24,7 +24,7 @@ namespace Goat2d
 namespace core
 {
 	//! position, size and its filling color
-	typedef std::tuple<Vector2i, Vector2i, Color> rect_data;
+	typedef std::tuple<Vector2f, Vector2f, Color> rect_data;
 
 	//! outline width and its color
 	typedef std::pair<int, Color> outline_rect_data;
@@ -38,10 +38,10 @@ namespace core
 	class Rectangle :public DrawableObject
 	{
 		//! contains position and size
-		SDL_Rect* fill_rect = nullptr; 
+		SDL_FRect* fill_rect = nullptr; 
 
 		//! outline colored rectangle
-		SDL_Rect* outline = nullptr; 
+		SDL_FRect* outline = nullptr; 
 
 		//! rectangle can have no outline, so outline color is nullptr
 		Color* outline_color = nullptr; 
@@ -81,7 +81,7 @@ namespace core
 
 
 		//! change left top corner position
-		void update_pos(const Vector2i& new_pos) override
+		void update_pos(const Vector2f& new_pos) override
 		{
 			pos = new_pos;
 

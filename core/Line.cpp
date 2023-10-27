@@ -21,9 +21,9 @@ Line::~Line()
 void Line::draw()
 {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-	SDL_RenderDrawLine(renderer, pos.x, pos.y,end.x, end.y);
+	SDL_RenderDrawLineF(renderer, pos.x, pos.y,end.x, end.y);
 }
-void Line::draw(const Vector2i& pos_start, const Vector2i& pos_end)
+void Line::draw(const Vector2f& pos_start, const Vector2f& pos_end)
 {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawLine(renderer, pos_start.x, pos_start.y, pos_end.x, pos_end.y);
