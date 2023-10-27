@@ -159,7 +159,7 @@ void GameWindow::run()
 			}
 		}
 
-		if (SDL_WaitEvent(&e) != 0)
+		while (SDL_PollEvent(&e) != 0)
 		{
 			quit_event->process(static_cast<void*>(&e));
 			process_keyboard_events(e);
@@ -167,6 +167,7 @@ void GameWindow::run()
 			for (auto& event : global_keyboard_events)
 				event->process(static_cast<void*>(&e));
 		}
+		
 		process_game_events();
 
 		auto mode_to_toggle = should_toggle_fullscreen();
