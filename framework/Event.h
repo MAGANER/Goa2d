@@ -12,6 +12,7 @@
 #include"SDL.h"
 
 #define ZERO_STATE static_cast<void*>(nullptr)
+#define ALWAYS_RET_T [](void* e){ return true;}
 namespace Goat2d
 {
 
