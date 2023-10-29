@@ -47,3 +47,7 @@ void SceneManager::toggled_fullscreen()
 {
 	current_scene->toggled();
 }
+void SceneManager::update_delta_time(double delta_time)
+{
+	current_scene->set_delta_time(delta_time);
+}

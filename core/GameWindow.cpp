@@ -142,13 +142,26 @@ void GameWindow::run()
 	}
 	//main game cycle
 
+
+	//variables to compute delta time
+	Uint64 NOW = SDL_GetPerformanceCounter();
+	Uint64 LAST = 0;
+	double deltaTime = 0;
+	//
+
+
 	//check and process keyboard events
 	//process event of scene
 	//draw and wait a bit to set FPS limit
-
 	SDL_Event e;
 	while (!quit)
 	{
+		LAST = NOW;
+		NOW = SDL_GetPerformanceCounter();
+		deltaTime = (double)((NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
+
+		//set delta time for current scene
+		update_delta_time(deltaTime);
 
 		if (should_change())
 		{

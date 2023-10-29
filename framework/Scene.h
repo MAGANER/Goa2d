@@ -57,6 +57,9 @@ namespace framework
 		//! next scene id that should be executed after current one
 		int next_id = -1;
 
+
+		//! this variable is used to avoid relying on CPU
+		double delta_time = 1.0;
 	public:
 		/*
 			use it if scene needs to toggle fullscreen
@@ -86,6 +89,8 @@ namespace framework
 		//! get reference to object that is used to manage events
 		EventManager& get_event_manager() { return event_manager; }
 		
+		void set_delta_time(double time) { delta_time = time; }
+
 		//! should scene be changed to another one
 		bool change()const { return should_change; }
 

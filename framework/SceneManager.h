@@ -77,6 +77,8 @@ namespace framework
 		//! should set new scene
 		bool should_change();
 
+		//! set delta time for current scene
+		void update_delta_time(double delta_time);
 		
 		//! returns mode if scenes needs to toggle fullscreen, otherwise None
 		BaseScene::FullscreenModes should_toggle_fullscreen();
