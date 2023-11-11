@@ -41,11 +41,11 @@ namespace core
 		void start();
 
 
-		//! set time point of computation finish.
-		void stop();
-
 		//! compute the difference between end point and start point.
 		double get_elapsed_ticks();
+	private:
+		//! set time point of computation finish.
+		void stop();
 	};
 };
 };
