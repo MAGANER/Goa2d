@@ -66,6 +66,9 @@ namespace core
 		//! render text on window
 		void draw() override;
 
+		//! render text on window with specific position. it doesn't change text's own position
+		void draw(const Vector2f& pos) override;
+
 		//! set new top left corner position
 		void update_pos(const Vector2f& new_pos) override;
 

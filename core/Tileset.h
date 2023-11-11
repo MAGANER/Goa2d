@@ -41,6 +41,7 @@ namespace core
 
 		//! draw specific part of tilest and return true if it's ok, unless return false
 		bool draw(size_t tile_code, const Vector2i& pos);
+		bool draw(size_t tile_code, const Vector2f& pos);
 
 		bool is_ok()const { return ok; }
 	private:

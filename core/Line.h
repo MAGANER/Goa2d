@@ -53,6 +53,11 @@ namespace core
 		//! draw lines at current  points
 		void draw()override;
 
+
+		//! don't use this function because you need to change 2 points
+		[[deprecated]]
+		void draw(const Vector2f& pos)override { return; }
+
 		/*!
 		\brief draw line at specific points
 		\param[in] pos_start start point

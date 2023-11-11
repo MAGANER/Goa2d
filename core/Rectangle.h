@@ -73,6 +73,9 @@ namespace core
 		//! draw rectangle
 		void draw()override;
 
+		//! draw rectangle at specific position. it doesn't change rect's own position
+		void draw(const Vector2f& pos)override;
+
 		//! change filling color
 		void set_color(const Color& color);
 

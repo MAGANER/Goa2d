@@ -78,6 +78,30 @@ void Rectangle::draw()
 		SDL_RenderDrawRectF(renderer, outline);
 	}
 }
+void Rectangle::draw(const Vector2f& pos)
+{
+	if (color != nullptr)
+	{
+		SDL_FRect r;
+		r.x = pos.x;
+		r.y = pos.y;
+		r.w = fill_rect->w;
+		r.h = fill_rect->h;
+		SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
+		SDL_RenderFillRectF(renderer, (const SDL_FRect*) & r);
+	}
+
+	if (outline_color != nullptr)
+	{
+		SDL_FRect r;
+		r.x = pos.x;
+		r.y = pos.y;
+		r.w = outline->w;
+		r.h = outline->h;
+		SDL_SetRenderDrawColor(renderer, outline_color->r, outline_color->g, outline_color->b, outline_color->a);
+		SDL_RenderDrawRectF(renderer, (const SDL_FRect*)&r);
+	}
+}
 void Rectangle::set_color(const Color& color)
 {
 	if (this->color != nullptr)

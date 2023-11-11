@@ -47,6 +47,10 @@ namespace core
 		//! draw point at current position
 		void draw()override;
 
+
+		//! draw point at special position. it doesn't change point's own position 
+		void draw(const Vector2f& pos)override;
+
 		//! set new point's position
 		void update_pos(const Vector2f& new_pos)override;
 	};

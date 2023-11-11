@@ -59,6 +59,15 @@ void Text::draw()
 {
 	SDL_RenderCopy(renderer, text_texture, NULL, rect);
 }
+void Text::draw(const Vector2f& pos)
+{
+	SDL_Rect r;
+	r.x = pos.x;
+	r.y = pos.y;
+	r.w = rect->w;
+	r.h = rect->h;
+	SDL_RenderCopy(renderer, text_texture, NULL, &r);
+}
 void Text::update_pos(const Vector2f& new_pos)
 {
 	pos = new_pos;

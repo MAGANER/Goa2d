@@ -45,6 +45,15 @@ void Texture::draw()
 {
 	SDL_RenderCopy(renderer, texture, NULL, drawing_rect);
 }
+void Texture::draw(const Vector2f& pos)
+{
+    SDL_Rect r;
+    r.x = pos.x;
+    r.y = pos.y;
+    r.w = drawing_rect->w;
+    r.h = drawing_rect->h;
+    SDL_RenderCopy(renderer, texture, NULL, &r);
+}
 Texture::~Texture()
 {
     if (drawing_rect != nullptr)

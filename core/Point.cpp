@@ -18,6 +18,11 @@ void Point::draw()
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawPointF(renderer, pos.x, pos.y);
 }
+void Point::draw(const Vector2f& pos)
+{
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+	SDL_RenderDrawPointF(renderer, pos.x, pos.y);
+}
 void Point::update_pos(const Vector2f& new_pos)
 {
 	pos = new_pos;

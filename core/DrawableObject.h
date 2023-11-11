@@ -43,6 +43,7 @@ namespace core
 		Vector2i size;
 	public:
 		virtual void draw() = 0;
+		virtual void draw(const Vector2f& pos) = 0;
 
 		Vector2i const& get_size()const { return size; }
 		Vector2f const& get_pos()const { return pos; }

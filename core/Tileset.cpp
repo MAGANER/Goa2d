@@ -84,5 +84,19 @@ bool Tileset::draw(size_t tile_code, const Vector2i& pos)
 
     return true;
 }
+bool Tileset::draw(size_t tile_code, const Vector2f& pos)
+{
+    if (tile_code > tiles.size())
+    {
+        print_error("unable to draw tile with code:" + std::to_string(tile_code));
+        write_error("unable to draw tile with code:" + std::to_string(tile_code));
+        return false;
+    }
 
+    auto tile = tiles[tile_code];
+    SDL_FRect render_quad = { .x = pos.x, .y = pos.y, .w = (float)tile.w,.h = (float)tile.h };
+    SDL_RenderCopyF(renderer, texture, &tile, &render_quad);
+
+    return true;
+}
 #endif

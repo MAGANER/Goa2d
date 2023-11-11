@@ -48,6 +48,9 @@ namespace core
 		//! renders textures on screen
 		void draw()override;
 
+		//! renders textures on screen with specific position. it doesn't change texture's own position
+		void draw(const Vector2f& pos)override;
+
 		//! returns creation status
 		bool is_ok()const { return ok; }
 
