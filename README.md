@@ -89,7 +89,7 @@ it would be a pleasure to find someone else who finds this project useful for ga
 </p>
 <br>
 <p>
-This framework is made of 2 parts: core and framework itself. These parts are namepspaces actually and they contains really different things.
+This framework is made of 2 parts: core and framework itself. These parts are namespaces actually and they contains really different things.
 Core is just an overwrapper of SDL libraries, but Framework contains all classes related to game architecture( or my vision of architecture).
 </p>
 
@@ -181,6 +181,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Ian(mainteiner) - haskel.lisp@yandex.ru
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+## Additional notes
 * [My thoughts on the game architecture - overview on this framework's philosophy](https://maganer.github.io/HaskelLispPlace/articles/game_architecture)
