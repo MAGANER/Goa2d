@@ -246,6 +246,15 @@ namespace core
 		
 		//! this function is used to make position centered if required
 		int get_screen_half_width();
+
+		//! inner game cycle method
+		void change_scene_when_required();
+
+		//! inner game cycle method
+		void toggle_fullscreen_when_required();
+
+		//! inner game cycle method. It catches keyboard, mouse, window e.t.c events and process related user's events
+		void process_window_events();
 	};
 };
 };

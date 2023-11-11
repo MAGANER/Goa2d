@@ -149,45 +149,54 @@ void GameWindow::run()
 	//draw and wait a bit to set FPS limit
 	while (!quit)
 	{
-		SDL_Event e;
-		if (SDL_PollEvent(&e) == 1)
-		{
-			quit_event->process(static_cast<void*>(&e));
-			process_keyboard_events(e);
-
-			for (auto& event : global_keyboard_events)
-				event->process(static_cast<void*>(&e));
-		}
-
-		if (should_change())
-		{
-			auto next_scene_id = get_next_id();
-			if (!change_scene(next_scene_id))
-			{
-				std::cout << "can't change scene!";
-			}
-		}
-		
+		process_window_events();
+		change_scene_when_required();
 		process_game_events();
-
-		auto mode_to_toggle = should_toggle_fullscreen();
-		if (mode_to_toggle == framework::BaseScene::FullscreenModes::True)
-		{
-			set_true_fullscreen_mode();
-			toggled_fullscreen();
-		}
-		else if (mode_to_toggle == framework::BaseScene::FullscreenModes::False)
-		{
-			set_false_fullscreen_mode();
-			toggled_fullscreen();
-		}
-		else if(mode_to_toggle == framework::BaseScene::FullscreenModes::NoFullscreen)
-		{
-			unset_fullscreen_mode();
-			toggled_fullscreen();
-		}
+		toggle_fullscreen_when_required();
 		draw();
 		wait();
+	}
+}
+void GameWindow::process_window_events()
+{
+	SDL_Event e;
+	if (SDL_PollEvent(&e) == 1)
+	{
+		quit_event->process(static_cast<void*>(&e));
+		process_keyboard_events(e);
+
+		for (auto& event : global_keyboard_events)
+			event->process(static_cast<void*>(&e));
+	}
+}
+void GameWindow::change_scene_when_required()
+{
+	if (should_change())
+	{
+		auto next_scene_id = get_next_id();
+		if (!change_scene(next_scene_id))
+		{
+			printf("%s\n", "can't change scene!");
+		}
+	}
+}
+void GameWindow::toggle_fullscreen_when_required()
+{
+	auto mode_to_toggle = should_toggle_fullscreen();
+	if (mode_to_toggle == framework::BaseScene::FullscreenModes::True)
+	{
+		set_true_fullscreen_mode();
+		toggled_fullscreen();
+	}
+	else if (mode_to_toggle == framework::BaseScene::FullscreenModes::False)
+	{
+		set_false_fullscreen_mode();
+		toggled_fullscreen();
+	}
+	else if (mode_to_toggle == framework::BaseScene::FullscreenModes::NoFullscreen)
+	{
+		unset_fullscreen_mode();
+		toggled_fullscreen();
 	}
 }
 void GameWindow::add_quit_event()
