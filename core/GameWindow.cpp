@@ -83,7 +83,7 @@ GameWindow::GameWindow(const GameWindowSetting& setting):
 
 
 			//init renderer
-			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED );
 			if (renderer == NULL)
 			{
 				if (print_error)::print_error("Renderer could not be created! SDL Error:");
@@ -140,28 +140,28 @@ void GameWindow::run()
 		::write_error("GameWindow error: no scene added!\n");
 		exit(-1);
 	}
+
 	//main game cycle
 
-
 	//variables to compute delta time
-	Uint64 NOW = SDL_GetPerformanceCounter();
-	Uint64 LAST = 0;
-	double deltaTime = 0;
 	//
 
+	timer.start();
 
 	//check and process keyboard events
 	//process event of scene
 	//draw and wait a bit to set FPS limit
-	SDL_Event e;
 	while (!quit)
 	{
-		LAST = NOW;
-		NOW = SDL_GetPerformanceCounter();
-		deltaTime = (double)((NOW - LAST) * 1000 / (double)SDL_GetPerformanceFrequency());
+		SDL_Event e;
+		if (SDL_PollEvent(&e) == 1)
+		{
+			quit_event->process(static_cast<void*>(&e));
+			process_keyboard_events(e);
 
-		//set delta time for current scene
-		update_delta_time(deltaTime);
+			for (auto& event : global_keyboard_events)
+				event->process(static_cast<void*>(&e));
+		}
 
 		if (should_change())
 		{
@@ -170,15 +170,6 @@ void GameWindow::run()
 			{
 				std::cout << "can't change scene!";
 			}
-		}
-
-		while (SDL_PollEvent(&e) != 0)
-		{
-			quit_event->process(static_cast<void*>(&e));
-			process_keyboard_events(e);
-
-			for (auto& event : global_keyboard_events)
-				event->process(static_cast<void*>(&e));
 		}
 		
 		process_game_events();
@@ -227,10 +218,13 @@ void GameWindow::add_quit_event()
 }
 void GameWindow::wait()
 {
-	//set fps framerate
-	if (1000 / FPS > SDL_GetTicks() - start) 
+	auto time_elapsed = timer.get_elapsed_ticks();
+	if (time_elapsed > (float)FPS / (float)1000000)
 	{
-		SDL_Delay(1000 / FPS - (SDL_GetTicks() - start));
+		//set delta time for current scene
+		update_delta_time(time_elapsed);
+		SDL_Delay(1);
+		timer.start();
 	}
 }
 void GameWindow::draw()

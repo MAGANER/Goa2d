@@ -26,9 +26,9 @@
 
 #include"framework/SceneManager.h"
 #include"ErrorLogger.h"
+#include"core/Timer.h"
 
 #include<string>
-
 namespace Goat2d
 {
 namespace core
@@ -190,6 +190,11 @@ namespace core
 
 		//! width and height, it's used to make able switching betweeen windowed and false fullscreen mode
 		core::Vector2i size;
+
+
+		//! Timer to provide FPS capping
+		core::Timer timer;
+
 	public:
 		/*!
 		\brief creates window from passed setting
