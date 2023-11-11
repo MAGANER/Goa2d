@@ -124,6 +124,7 @@ namespace framework
 		{
 			for (auto& e : event_manager.get_keyboard_events())
 				e->process(static_cast<void*>(&_event));
+
 		}
 
 		//! inner function to process in-game scene's events

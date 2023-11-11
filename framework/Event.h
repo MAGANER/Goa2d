@@ -87,7 +87,6 @@ namespace framework
 		EventType get_type()const { return type; }
 	};
 
-
 	//synonym to predicat that is used by KeyboardEvent class
 	typedef std::function<bool(const SDL_Event& e)> keyboard_pred_t;
 
@@ -205,7 +204,6 @@ namespace framework
 		[[deprecated]]
 		void process(void* e)override { return; }
 	};
-
 
 	/*!
 	\brief class to sort and store events by their type
