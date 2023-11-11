@@ -142,10 +142,6 @@ void GameWindow::run()
 	}
 
 	//main game cycle
-
-	//variables to compute delta time
-	//
-
 	timer.start();
 
 	//check and process keyboard events
@@ -224,7 +220,6 @@ void GameWindow::wait()
 		//set delta time for current scene
 		update_delta_time(time_elapsed);
 		SDL_Delay(1);
-		timer.start();
 	}
 }
 void GameWindow::draw()
