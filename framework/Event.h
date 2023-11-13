@@ -49,6 +49,12 @@ namespace framework
 	template<class T, class F>
 	class BaseEvent
 	{
+	private:
+		//! unique number for every event
+		size_t id;
+
+		//! this event won't be runned if it's disabled
+		bool disable = false;
 	protected:
 		//! lambda that checks condition to execute action
 		T predicat;
@@ -85,6 +91,18 @@ namespace framework
 
 		//! returns event's type
 		EventType get_type()const { return type; }
+
+		//! change disable flag's value
+		void set_disable(bool flag) { disable = flag; }
+		
+		//! check is disabled
+		bool is_disabled() { return disable; }
+
+		//! getter function for id field
+		size_t get_id() { return id; }
+
+		//! setter function for id field
+		void set_id(size_t id) { this->id = id; }
 	};
 
 	//synonym to predicat that is used by KeyboardEvent class
@@ -214,6 +232,9 @@ namespace framework
 	{
 		std::list<KeyboardEvent*> keyboard_events;
 		std::list<SimpleEvent*> nonconditional_events, conditional_events;
+
+		//! counter for event's ids
+		size_t id_counter = 0;
 	public:
 		EventManager(){}
 		~EventManager(){}
@@ -224,6 +245,10 @@ namespace framework
 		*/
 		void add_event(KeyboardEvent* event)
 		{
+			if(id_counter != 0)
+				++id_counter;
+			event->set_id(id_counter);
+
 			keyboard_events.push_back(event);
 		}
 
@@ -233,10 +258,27 @@ namespace framework
 		*/
 		void add_event(SimpleEvent* event)
 		{
+			if (id_counter != 0)
+				++id_counter;
+			event->set_id(id_counter);
+
+
 			if (event->get_type() == EventType::conditional)
 				conditional_events.push_back(event);
 			if (event->get_type() == EventType::nonconditional)
 				nonconditional_events.push_back(event);
+		}
+
+
+		//! set disabling flag for all events
+		void set_disable_for_all(bool flag)
+		{
+			for (auto& e : conditional_events)
+				e->set_disable(flag);
+			for (auto& e : nonconditional_events)
+				e->set_disable(flag);
+			for (auto& e : keyboard_events)
+				e->set_disable(flag);
 		}
 
 		//! get const reference to keyboard events list
