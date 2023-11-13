@@ -10,6 +10,7 @@
 #include <functional>
 #include<list>
 #include"SDL.h"
+#include"core/ErrorLogger.h"
 
 #define ZERO_STATE static_cast<void*>(nullptr)
 #define ALWAYS_RET_T [](void* e){ return true;}
@@ -50,6 +51,9 @@ namespace framework
 	class BaseEvent
 	{
 	private:
+		//! counts total number of created objects
+		static inline size_t object_counter = 0;
+
 		//! unique number for every event
 		size_t id;
 
@@ -79,7 +83,10 @@ namespace framework
 				  const F& fn, 
 				  void* state,
 				  EventType type):predicat(predicat),fn(fn),state(state),type(type)
-		{}
+		{
+			++object_counter;
+			id = object_counter;
+		}
 		virtual ~BaseEvent() {}
 
 
@@ -223,6 +230,13 @@ namespace framework
 		void process(void* e)override { return; }
 	};
 
+
+//it's kinda strange trick
+#define LAST_KEYBOARD_EVENT -3
+#define LAST_NONCOND_EVENT  -2
+#define LAST_COND_EVENT     -1
+
+
 	/*!
 	\brief class to sort and store events by their type
 	\author MAGANER
@@ -232,9 +246,6 @@ namespace framework
 	{
 		std::list<KeyboardEvent*> keyboard_events;
 		std::list<SimpleEvent*> nonconditional_events, conditional_events;
-
-		//! counter for event's ids
-		size_t id_counter = 0;
 	public:
 		EventManager(){}
 		~EventManager(){}
@@ -245,10 +256,6 @@ namespace framework
 		*/
 		void add_event(KeyboardEvent* event)
 		{
-			if(id_counter != 0)
-				++id_counter;
-			event->set_id(id_counter);
-
 			keyboard_events.push_back(event);
 		}
 
@@ -258,11 +265,6 @@ namespace framework
 		*/
 		void add_event(SimpleEvent* event)
 		{
-			if (id_counter != 0)
-				++id_counter;
-			event->set_id(id_counter);
-
-
 			if (event->get_type() == EventType::conditional)
 				conditional_events.push_back(event);
 			if (event->get_type() == EventType::nonconditional)
@@ -279,6 +281,60 @@ namespace framework
 				e->set_disable(flag);
 			for (auto& e : keyboard_events)
 				e->set_disable(flag);
+		}
+
+		/*!
+		\brief set disabling flag for all event, execpt the last special event
+		\param[in] flag - true or flase
+		\param[in] flag - LAST_KEYBOARD_EVENT or LAST_NONCOND_EVENT or LAST_COND_EVENT
+		*/
+		void set_disable_for_all_execpt_last(bool flag, int which_one)
+		{
+			if (which_one == LAST_KEYBOARD_EVENT)
+			{
+				//exlude the last element
+				for (auto it = keyboard_events.begin();
+					it != --keyboard_events.end();
+					++it)
+					(*it)->set_disable(flag);
+
+				for (auto& e : conditional_events)
+					e->set_disable(flag);
+				for (auto& e : nonconditional_events)
+					e->set_disable(flag);
+			}
+			else if (which_one == LAST_NONCOND_EVENT)
+			{
+				//exlude the last element
+				for (auto it = nonconditional_events.begin();
+					it != --nonconditional_events.end();
+					++it)
+					(*it)->set_disable(flag);
+
+				for (auto& e : conditional_events)
+					e->set_disable(flag);
+				for (auto& e : keyboard_events)
+					e->set_disable(flag);
+			}
+			else if (which_one == LAST_COND_EVENT)
+			{
+				//exlude the last element
+				for (auto it = conditional_events.begin();
+					it != --conditional_events.end();
+					++it)
+					(*it)->set_disable(flag);
+
+				for (auto& e : nonconditional_events)
+					e->set_disable(flag);
+				for (auto& e : keyboard_events)
+					e->set_disable(flag);
+			}
+			else
+			{
+				core::print_error("Incorrect argument for set_disable_for_all_execpt_last()!\n");
+				core::write_error("Incorrect argument for set_disable_for_all_execpt_last()!\n");
+				return;
+			}
 		}
 
 		//! get const reference to keyboard events list
