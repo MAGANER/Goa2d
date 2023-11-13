@@ -123,7 +123,8 @@ namespace framework
 		void process_keyboard_events(SDL_Event& _event)
 		{
 			for (auto& e : event_manager.get_keyboard_events())
-				e->process(static_cast<void*>(&_event));
+				if(!e->is_disabled())
+					e->process(static_cast<void*>(&_event));
 
 		}
 
@@ -131,9 +132,11 @@ namespace framework
 		void process_game_events()
 		{
 			for (auto& e : event_manager.get_nonconditional_events())
-				e->process();
+				if(!e->is_disabled())
+					e->process();
 			for (auto& e : event_manager.get_conditional_events())
-				e->process();
+				if (!e->is_disabled())
+					e->process();
 		}
 	protected:
 

@@ -162,11 +162,14 @@ void GameWindow::process_window_events()
 	SDL_Event e;
 	if (SDL_PollEvent(&e) == 1)
 	{
-		quit_event->process(static_cast<void*>(&e));
+		if(!quit_event->is_disabled())
+			quit_event->process(static_cast<void*>(&e));
+
 		process_keyboard_events(e);
 
 		for (auto& event : global_keyboard_events)
-			event->process(static_cast<void*>(&e));
+			if(!event->is_disabled())
+				event->process(static_cast<void*>(&e));
 	}
 }
 void GameWindow::change_scene_when_required()
