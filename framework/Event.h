@@ -9,6 +9,7 @@
 #define EVENT_H
 #include <functional>
 #include<list>
+#include<initializer_list>
 #include"SDL.h"
 #include"core/ErrorLogger.h"
 
@@ -286,7 +287,7 @@ namespace framework
 		/*!
 		\brief set disabling flag for all event, execpt the last special event
 		\param[in] flag - true or flase
-		\param[in] flag - LAST_KEYBOARD_EVENT or LAST_NONCOND_EVENT or LAST_COND_EVENT
+		\param[in] which_one - LAST_KEYBOARD_EVENT or LAST_NONCOND_EVENT or LAST_COND_EVENT
 		*/
 		void set_disable_for_all_execpt_last(bool flag, int which_one)
 		{
@@ -335,6 +336,25 @@ namespace framework
 				core::write_error("Incorrect argument for set_disable_for_all_execpt_last()!\n");
 				return;
 			}
+		}
+
+
+		/*!
+		\brief set disabling flag for all event, execpt passed ids
+		\param[in] flag - true or flase
+		\param[in] l - initialiser list of ids
+		*/
+		void set_disable_for_all_execpt_special(bool flag, std::initializer_list<size_t> l)
+		{
+			for (auto& e : conditional_events)
+				if(std::find(l.begin(),l.end(),e->get_id()) == l.end())
+					e->set_disable(flag);
+			for (auto& e : nonconditional_events)
+				if (std::find(l.begin(), l.end(), e->get_id()) == l.end())
+					e->set_disable(flag);
+			for (auto& e : keyboard_events)
+				if (std::find(l.begin(), l.end(), e->get_id()) == l.end())
+					e->set_disable(flag);
 		}
 
 		//! get const reference to keyboard events list
