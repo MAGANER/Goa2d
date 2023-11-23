@@ -55,6 +55,9 @@ namespace framework
 		//! counts total number of created objects
 		static inline size_t object_counter = 0;
 
+		//! new event's id can't be equal or less than last one's id 
+		static inline size_t last_id = 0;
+
 		//! unique number for every event
 		size_t id;
 
@@ -87,6 +90,7 @@ namespace framework
 		{
 			++object_counter;
 			id = object_counter;
+			last_id = id;
 		}
 		virtual ~BaseEvent() {}
 
@@ -110,7 +114,18 @@ namespace framework
 		size_t get_id() { return id; }
 
 		//! setter function for id field
-		void set_id(size_t id) { this->id = id; }
+		void set_id(size_t id) 
+		{ 
+			if (last_id >= id)
+			{
+				auto err = "Can't create event with id " + std::to_string(id) + " it must be higher than " + std::to_string(last_id);
+				core::print_error(err);
+				core::write_error(err);
+				exit(-1);
+			}
+			this->id = id; 
+			last_id = id;
+		}
 	};
 
 	//synonym to predicat that is used by KeyboardEvent class
