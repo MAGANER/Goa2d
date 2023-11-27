@@ -71,6 +71,7 @@ void Tileset::split_tiles(const SDL_Point& size, const Vector2i& tile_size)
 }
 bool Tileset::draw(size_t tile_code, const Vector2i& pos)
 {
+
     if (tile_code > tiles.size())
     {
         print_error("unable to draw tile with code:" + std::to_string(tile_code));
@@ -78,9 +79,12 @@ bool Tileset::draw(size_t tile_code, const Vector2i& pos)
         return false;
     }
 
-    auto tile = tiles[tile_code];
-    SDL_Rect render_quad = { .x = pos.x, .y = pos.y, .w = tile.w,.h = tile.h };
-    SDL_RenderCopy(renderer, texture, &tile, &render_quad);
+    if (visible)
+    {
+        auto tile = tiles[tile_code];
+        SDL_Rect render_quad = { .x = pos.x, .y = pos.y, .w = tile.w,.h = tile.h };
+        SDL_RenderCopy(renderer, texture, &tile, &render_quad);
+    }
 
     return true;
 }
@@ -93,10 +97,12 @@ bool Tileset::draw(size_t tile_code, const Vector2f& pos)
         return false;
     }
 
-    auto tile = tiles[tile_code];
-    SDL_FRect render_quad = { .x = pos.x, .y = pos.y, .w = (float)tile.w,.h = (float)tile.h };
-    SDL_RenderCopyF(renderer, texture, &tile, &render_quad);
-
+    if (visible)
+    {
+        auto tile = tiles[tile_code];
+        SDL_FRect render_quad = { .x = pos.x, .y = pos.y, .w = (float)tile.w,.h = (float)tile.h };
+        SDL_RenderCopyF(renderer, texture, &tile, &render_quad);
+    }
     return true;
 }
 #endif

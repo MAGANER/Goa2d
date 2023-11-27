@@ -41,6 +41,10 @@ namespace core
 		//! common properties of every object
 		Vector2f pos;
 		Vector2i size;
+
+
+		//! if it's false then object won't be drawn. it's true by default
+		bool visible = true;
 	public:
 		virtual void draw() = 0;
 		virtual void draw(const Vector2f& pos) = 0;
@@ -48,6 +52,11 @@ namespace core
 		Vector2i const& get_size()const { return size; }
 		Vector2f const& get_pos()const { return pos; }
 
+
+		bool is_visible() { return visible; }
+		
+		//! toggle object's visibility
+		void make_visible(bool flag) { visible = flag; }
 
 		//this method is virtual because it probably changes SDL_Rect or something similar
 		virtual void update_pos(const Vector2f& new_pos) = 0;

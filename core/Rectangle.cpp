@@ -66,6 +66,9 @@ Rectangle::~Rectangle()
 
 void Rectangle::draw()
 {
+	if (!visible)
+		return;
+
 	if (color != nullptr)
 	{
 		SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
@@ -80,6 +83,9 @@ void Rectangle::draw()
 }
 void Rectangle::draw(const Vector2f& pos)
 {
+	if (!visible)
+		return;
+
 	if (color != nullptr)
 	{
 		SDL_FRect r;

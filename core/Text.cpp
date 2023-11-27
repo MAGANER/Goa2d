@@ -57,10 +57,16 @@ Text::~Text()
 }
 void Text::draw()
 {
+	if (!visible)
+		return;
+
 	SDL_RenderCopy(renderer, text_texture, NULL, rect);
 }
 void Text::draw(const Vector2f& pos)
 {
+	if (!visible)
+		return;
+
 	SDL_Rect r;
 	r.x = pos.x;
 	r.y = pos.y;

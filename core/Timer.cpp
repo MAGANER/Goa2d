@@ -11,8 +11,7 @@ void Timer::stop()
 }
 double Timer::get_elapsed_ticks()
 {
-	stop();
-	const std::chrono::duration<double> diff = end_point - start_point;
-	start();
+	auto current_time = std::chrono::high_resolution_clock::now();
+	auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - start_point);
 	return diff.count();
 }

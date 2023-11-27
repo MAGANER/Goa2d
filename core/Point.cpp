@@ -15,11 +15,17 @@ Point::Point(const Vector2f& pos, const Color& color, SDL_Renderer* renderer)
 
 void Point::draw()
 {
+	if (!visible)
+		return;
+
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawPointF(renderer, pos.x, pos.y);
 }
 void Point::draw(const Vector2f& pos)
 {
+	if (!visible)
+		return;
+
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawPointF(renderer, pos.x, pos.y);
 }

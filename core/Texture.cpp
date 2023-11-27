@@ -43,10 +43,16 @@ Texture::Texture(const std::string& path, SDL_Renderer* renderer):
 }
 void Texture::draw()
 {
+    if (!visible)
+        return;
+
 	SDL_RenderCopy(renderer, texture, NULL, drawing_rect);
 }
 void Texture::draw(const Vector2f& pos)
 {
+    if (!visible)
+        return;
+
     SDL_Rect r;
     r.x = pos.x;
     r.y = pos.y;

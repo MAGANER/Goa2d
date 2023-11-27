@@ -29,6 +29,8 @@ namespace core
 		//! if it's true, than everything loaded correctly
 		bool ok = true;
 
+		bool visible = true;
+
 		//! tile rects
 		std::vector<SDL_Rect> tiles;
 	protected:
@@ -44,6 +46,9 @@ namespace core
 		bool draw(size_t tile_code, const Vector2f& pos);
 
 		bool is_ok()const { return ok; }
+		bool is_visible()const { return visible; }
+
+		void make_visible(bool flag) { visible = flag; }
 	private:
 
 		//! compute rectangles with tiles
