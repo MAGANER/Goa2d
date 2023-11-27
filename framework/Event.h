@@ -126,6 +126,14 @@ namespace framework
 			this->id = id; 
 			last_id = id;
 		}
+
+
+		//! clear static state. Call this function when scene is deleted
+		static void clear_static_state()
+		{
+			object_counter = 0;
+			last_id        = 0;
+		}
 	};
 
 	//synonym to predicat that is used by KeyboardEvent class
@@ -264,7 +272,17 @@ namespace framework
 		std::list<SimpleEvent*> nonconditional_events, conditional_events;
 	public:
 		EventManager(){}
-		~EventManager(){}
+		~EventManager()
+		{
+			if (!keyboard_events.empty())
+				keyboard_events.front()->clear_static_state();
+
+			if (!nonconditional_events.empty())
+				nonconditional_events.front()->clear_static_state();
+
+			if (!conditional_events.empty())
+				conditional_events.front()->clear_static_state();
+		}
 
 		/*!
 		\brief add KeyboardEvent to special list
