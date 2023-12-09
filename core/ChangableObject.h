@@ -24,7 +24,7 @@ namespace core
 	//! overwrapper for flipping types of SDL
 	enum class FlipType :short
 	{
-		None = -1,
+		None = SDL_FLIP_NONE,
 		Horizontal = SDL_FLIP_HORIZONTAL,
 		Vertical = SDL_FLIP_VERTICAL,
 		Diagonal = Horizontal | Vertical
