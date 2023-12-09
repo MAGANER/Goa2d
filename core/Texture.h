@@ -46,7 +46,7 @@ namespace core
 		*/
 		Texture(const std::string& path,
 				SDL_Renderer* renderer,
-				float rotation_angle = 0.0f,
+				double rotation_angle = 0.0f,
 				FlipType flipping_type = FlipType::None);
 		~Texture();
 

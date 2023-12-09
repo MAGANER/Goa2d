@@ -4,7 +4,7 @@ using namespace Goat2d::core;
 
 Texture::Texture(const std::string& path, 
                  SDL_Renderer* renderer,
-                 float rotation_angle,
+                 double rotation_angle,
                  FlipType flipping_type):
     ChangableObject(renderer,rotation_angle,flipping_type)
 {
@@ -61,7 +61,14 @@ void Texture::draw(const Vector2f& pos)
     r.y = pos.y;
     r.w = drawing_rect->w;
     r.h = drawing_rect->h;
-    SDL_RenderCopy(renderer, texture, NULL, &r);
+
+    SDL_RenderCopyEx(renderer, 
+                     texture, 
+                     NULL, 
+                     &r, 
+                     get_rotation_angle(), 
+                     NULL, 
+                     (SDL_RendererFlip)get_flipping_type());
 }
 Texture::~Texture()
 {
