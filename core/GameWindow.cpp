@@ -227,7 +227,7 @@ void GameWindow::add_quit_event()
 void GameWindow::wait()
 {
 	auto time_elapsed = timer.get_elapsed_ticks();
-	if (time_elapsed > (float)FPS / (float)1000000)
+	if (time_elapsed > (float)FPS / (float)10000)
 	{
 		//set delta time for current scene
 		update_delta_time(time_elapsed);
