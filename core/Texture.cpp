@@ -49,7 +49,13 @@ void Texture::draw()
     if (!visible)
         return;
 
-	SDL_RenderCopy(renderer, texture, NULL, drawing_rect);
+    SDL_RenderCopyEx(renderer,
+        texture,
+        NULL,
+        drawing_rect,
+        get_rotation_angle(),
+        NULL,
+        (SDL_RendererFlip)get_flipping_type());
 }
 void Texture::draw(const Vector2f& pos)
 {
