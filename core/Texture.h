@@ -12,7 +12,7 @@
 
 #ifndef TEXTURE_H
 #define TEXTURE_H
-#include"core/DrawableObject.h"
+#include"core/ChangableObject.h"
 #include"core/ErrorLogger.h"
 
 namespace Goat2d
@@ -25,7 +25,7 @@ namespace core
 	\author MAGANER
 	\date 10.09.2023
 	*/
-	class Texture: public DrawableObject
+	class Texture: public ChangableObject
 	{
 		//! pixel data
 		SDL_Texture* texture = nullptr;
@@ -41,8 +41,13 @@ namespace core
 		\brief Creates texture object
 		\param[in] path path to image that will be loaded as texture
 		\param[in] renderer Window's renderer
+		\param[in] angle that will be used to rotate image. 0 by default
+		\param[in] Flipping direction. None by default 
 		*/
-		Texture(const std::string& path,SDL_Renderer* renderer);
+		Texture(const std::string& path,
+				SDL_Renderer* renderer,
+				float rotation_angle = 0.0f,
+				FlipType flipping_type = FlipType::None);
 		~Texture();
 
 		//! renders textures on screen

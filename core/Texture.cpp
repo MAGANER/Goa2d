@@ -2,8 +2,11 @@
 #ifdef USE_SDL_IMG
 using namespace Goat2d::core;
 
-Texture::Texture(const std::string& path, SDL_Renderer* renderer):
-    DrawableObject(renderer)
+Texture::Texture(const std::string& path, 
+                 SDL_Renderer* renderer,
+                 float rotation_angle,
+                 FlipType flipping_type):
+    ChangableObject(renderer,rotation_angle,flipping_type)
 {
     //Load image at specified path
     SDL_Surface* loadedSurface = IMG_Load(path.c_str());
