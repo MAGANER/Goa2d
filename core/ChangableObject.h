@@ -39,13 +39,13 @@ namespace core
 	{
 	private:
 		//! object will be drawn rotated by this angle
-		float rotation_angle = 0.0f;
+		double rotation_angle = 0.0f;
 
 		//! flip object. No flipping by default
 		FlipType flipping_type = FlipType::None;
 	protected:
 		ChangableObject(SDL_Renderer* renderer,
-						float rotation_angle=0.0f,
+						double rotation_angle=0.0f,
 						FlipType flipping_type=FlipType::None):
 			DrawableObject(renderer),
 			rotation_angle(rotation_angle),
@@ -58,10 +58,10 @@ namespace core
 		//! virtual method derived from DrawableObject
 		virtual void draw(const Vector2f& pos) = 0;
 
-		float get_rotation_angle() { return rotation_angle; }
+		double get_rotation_angle() { return rotation_angle; }
 		FlipType get_flipping_type() { return flipping_type; }
 
-		void set_rotation(float angle) { rotation_angle = angle; }
+		void set_rotation(double angle) { rotation_angle = angle; }
 		void set_flipping_type(FlipType type) { flipping_type = type; }
 	};
 };
