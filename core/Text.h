@@ -12,7 +12,7 @@
 
 #ifndef TEXT_H
 #define TEXT_H
-#include"DrawableObject.h"
+#include"ChangableObject.h"
 #include"Font.h"
 #include"Color.h"
 namespace Goat2d
@@ -25,7 +25,7 @@ namespace core
 	\author MAGANER
 	\date 10.09.2023
 	*/
-	class Text: public DrawableObject
+	class Text: public ChangableObject
 	{
 	private:
 
@@ -60,7 +60,9 @@ namespace core
 			 const std::string& text,
 			 const Vector2f& pos,
 			 SDL_Renderer* renderer,
-			 const Color& color=Color(255,255,255,255));
+			 const Color& color=Color(255,255,255,255),
+			 double rotation_angle = 0.0f,
+			 FlipType flipping_type = FlipType::None);
 		~Text();
 
 		//! render text on window

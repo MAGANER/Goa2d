@@ -7,8 +7,10 @@ Text::Text(const Font& font,
 		   const std::string& text,
 		   const Vector2f& pos,
 		   SDL_Renderer* renderer,
-		   const Color& color)
-					:DrawableObject(renderer),
+		   const Color& color,
+		   double rotation_angle,
+		   FlipType flipping_type)
+					:ChangableObject(renderer,rotation_angle,flipping_type),
 					 font(const_cast<Font*>(&font)),
 					 color(color),
 					 text(text)
@@ -72,7 +74,13 @@ void Text::draw(const Vector2f& pos)
 	r.y = pos.y;
 	r.w = rect->w;
 	r.h = rect->h;
-	SDL_RenderCopy(renderer, text_texture, NULL, &r);
+	SDL_RenderCopyEx(renderer,
+		text_texture,
+		NULL,
+		&r,
+		get_rotation_angle(),
+		NULL,
+		(SDL_RendererFlip)get_flipping_type());
 }
 void Text::update_pos(const Vector2f& new_pos)
 {
