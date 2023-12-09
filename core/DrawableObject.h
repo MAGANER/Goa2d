@@ -29,21 +29,6 @@ namespace core
 	class DrawableObject
 	{
 	protected:
-
-		//! overwrapper for flipping types of SDL
-		enum class FlipType:short
-		{
-			None = -1,
-			Horizontal = SDL_FLIP_HORIZONTAL,
-			Vertical   = SDL_FLIP_VERTICAL,
-			Diagonal   = Horizontal | Vertical
-		};
-	private:
-
-		//! object will be drawn rotated by this angle
-		float rotation_angle = 0.0f;
-		FlipType flipping_type = FlipType::None;
-	protected:
 		//this pointer has an address of renderer that was initialised in GameWindow class
 		//so you shouldn't init/delete it, just use it for SDL functions, where it's required
 
@@ -70,17 +55,13 @@ namespace core
 
 		bool is_visible() { return visible; }
 		
-		float get_rotation_angle() { return rotation_angle; }
-		FlipType get_flipping_type() { return flipping_type; }
+
 
 		//! toggle object's visibility
 		void make_visible(bool flag) { visible = flag; }
 
 		//this method is virtual because it probably changes SDL_Rect or something similar
 		virtual void update_pos(const Vector2f& new_pos) = 0;
-
-		void set_rotation(float angle) { rotation_angle = angle; }
-		void set_flipping_type(FlipType type) { flipping_type = type; }
 	};
 };
 };
