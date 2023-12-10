@@ -12,7 +12,7 @@
 
 #ifndef TEXT_H
 #define TEXT_H
-#include"ChangableObject.h"
+#include"TransformableObject.h"
 #include"Font.h"
 #include"Color.h"
 namespace Goat2d
@@ -25,7 +25,7 @@ namespace core
 	\author MAGANER
 	\date 10.09.2023
 	*/
-	class Text: public ChangableObject
+	class Text: public TransformableObject
 	{
 	private:
 
@@ -57,12 +57,12 @@ namespace core
 		\param[in] color filling color. Default value is white
 		*/
 		Text(const Font& font,
-			 const std::string& text,
-			 const Vector2f& pos,
-			 SDL_Renderer* renderer,
-			 const Color& color=Color(255,255,255,255),
-			 double rotation_angle = 0.0f,
-			 FlipType flipping_type = FlipType::None);
+			const std::string& text,
+			const Vector2f& pos,
+			SDL_Renderer* renderer,
+			const Color& color = Color(255, 255, 255, 255),
+			double rotation_angle = 0.0f,
+			FlipType flipping_type = FlipType::None);
 		~Text();
 
 		//! render text on window

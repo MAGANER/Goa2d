@@ -5,8 +5,8 @@ using namespace Goat2d::core;
 Texture::Texture(const std::string& path, 
                  SDL_Renderer* renderer,
                  double rotation_angle,
-                 FlipType flipping_type):
-    ChangableObject(renderer,rotation_angle,flipping_type)
+                 FlipType flipping_type) :
+    TransformableObject(renderer,rotation_angle , flipping_type)
 {
     //Load image at specified path
     SDL_Surface* loadedSurface = IMG_Load(path.c_str());
@@ -68,13 +68,13 @@ void Texture::draw(const Vector2f& pos)
     r.w = drawing_rect->w;
     r.h = drawing_rect->h;
 
-    SDL_RenderCopyEx(renderer, 
-                     texture, 
-                     NULL, 
-                     &r, 
-                     get_rotation_angle(), 
-                     NULL, 
-                     (SDL_RendererFlip)get_flipping_type());
+    SDL_RenderCopyEx(renderer,
+        texture,
+        NULL,
+        &r,
+        get_rotation_angle(),
+        NULL,
+        (SDL_RendererFlip)get_flipping_type());
 }
 Texture::~Texture()
 {

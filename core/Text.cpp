@@ -10,7 +10,7 @@ Text::Text(const Font& font,
 		   const Color& color,
 		   double rotation_angle,
 		   FlipType flipping_type)
-					:ChangableObject(renderer,rotation_angle,flipping_type),
+					:TransformableObject(renderer,rotation_angle/*, flipping_type*/),
 					 font(const_cast<Font*>(&font)),
 					 color(color),
 					 text(text)
@@ -62,7 +62,13 @@ void Text::draw()
 	if (!visible)
 		return;
 
-	SDL_RenderCopy(renderer, text_texture, NULL, rect);
+	SDL_RenderCopyEx(renderer,
+		text_texture,
+		NULL,
+		rect,
+		get_rotation_angle(),
+		NULL,
+		(SDL_RendererFlip)get_flipping_type());
 }
 void Text::draw(const Vector2f& pos)
 {

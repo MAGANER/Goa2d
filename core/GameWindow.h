@@ -189,11 +189,11 @@ namespace core
 		SDL_Surface* icon = nullptr;
 
 		//! width and height, it's used to make able switching betweeen windowed and false fullscreen mode
-		core::Vector2i size;
+		Goat2d::core::Vector2i size;
 
 
 		//! Timer to provide FPS capping
-		core::Timer timer;
+		Goat2d::core::Timer timer;
 
 	public:
 		/*!

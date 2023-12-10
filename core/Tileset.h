@@ -12,6 +12,7 @@
 #include"Vector.h"
 #include"core/ErrorLogger.h"
 #include"SDL_image.h"
+//#include"FlippingType.h"
 
 namespace Goat2d
 {
