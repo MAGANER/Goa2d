@@ -69,7 +69,10 @@ void Tileset::split_tiles(const SDL_Point& size, const Vector2i& tile_size)
         curr_pos.y = curr_pos.y + tile_size.y;
     }
 }
-bool Tileset::draw(size_t tile_code, const Vector2i& pos,FlipType type)
+bool Tileset::draw(size_t tile_code, 
+                   const Vector2i& pos,
+                   FlipType type,
+                   double rotation_angle)
 {
 
     if (tile_code > tiles.size())
@@ -87,7 +90,7 @@ bool Tileset::draw(size_t tile_code, const Vector2i& pos,FlipType type)
             texture,
             &tile,
             &render_quad,
-            0.0,
+            rotation_angle,
             NULL,
             (SDL_RendererFlip)type);
         
@@ -95,7 +98,10 @@ bool Tileset::draw(size_t tile_code, const Vector2i& pos,FlipType type)
 
     return true;
 }
-bool Tileset::draw(size_t tile_code, const Vector2f& pos, FlipType type)
+bool Tileset::draw(size_t tile_code, 
+                   const Vector2f& pos, 
+                   FlipType type,
+                   double rotation_angle)
 {
     if (tile_code > tiles.size())
     {
@@ -112,7 +118,7 @@ bool Tileset::draw(size_t tile_code, const Vector2f& pos, FlipType type)
             texture,
             &tile,
             &render_quad,
-            0.0,
+            rotation_angle,
             NULL,
             (SDL_RendererFlip)type);
     }

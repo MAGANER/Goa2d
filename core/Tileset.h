@@ -42,8 +42,14 @@ namespace core
 		~Tileset();
 
 		//! draw specific part of tilest and return true if it's ok, unless return false
-		bool draw(size_t tile_code, const Vector2i& pos, FlipType type = FlipType::None);
-		bool draw(size_t tile_code, const Vector2f& pos, FlipType type = FlipType::None);
+		bool draw(size_t tile_code, 
+				  const Vector2i& pos, 
+				  FlipType type = FlipType::None,
+				  double rotation_angle = 0.0);
+		bool draw(size_t tile_code, 
+				  const Vector2f& pos, 
+				  FlipType type = FlipType::None,
+				  double rotation_angle = 0.0);
 
 
 		bool is_ok()const { return ok; }
