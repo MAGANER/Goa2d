@@ -119,8 +119,8 @@ namespace framework
 			if (last_id >= id)
 			{
 				auto err = "Can't create event with id " + std::to_string(id) + " it must be higher than " + std::to_string(last_id);
-				core::print_error(err);
-				core::write_error(err);
+				Goat2d::core::print_error(err);
+				Goat2d::core::write_error(err);
 				exit(-1);
 			}
 			this->id = id; 
@@ -365,8 +365,8 @@ namespace framework
 			}
 			else
 			{
-				core::print_error("Incorrect argument for set_disable_for_all_execpt_last()!\n");
-				core::write_error("Incorrect argument for set_disable_for_all_execpt_last()!\n");
+				Goat2d::core::print_error("Incorrect argument for set_disable_for_all_execpt_last()!\n");
+				Goat2d::core::write_error("Incorrect argument for set_disable_for_all_execpt_last()!\n");
 				return;
 			}
 		}

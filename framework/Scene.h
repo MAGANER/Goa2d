@@ -109,11 +109,11 @@ namespace framework
 		FullscreenModes get_fullscreen_mode_to_change() { return mode_to_set; }
 
 		//! get current renderer's width and height
-		core::Vector2i get_renderer_size()const
+		Goat2d::core::Vector2i get_renderer_size()const
 		{
 			int w, h;
 			SDL_GetRendererOutputSize(renderer, &w, &h);
-			return core::Vector2i(w, h);
+			return Goat2d::core::Vector2i(w, h);
 		}
 
 		//these functions are used by SceneManager
@@ -154,9 +154,9 @@ namespace framework
 		\return pointer to Texture object
 		\warning you can use this function only if USE_SDL_IMG is defined in core/Definitors.h
 		*/
-		inline core::Texture* create_texture(const std::string& path)
+		inline Goat2d::core::Texture* create_texture(const std::string& path)
 		{
-			return new core::Texture(path, renderer);
+			return new Goat2d::core::Texture(path, renderer);
 		}
 	#endif
 		/*!
@@ -164,9 +164,9 @@ namespace framework
 		\param[in] parameters position, size and its filling color
 		\return pointer to Rectangle class
 		*/
-		inline core::Rectangle* create_rect(const core::rect_data& parameters)
+		inline Goat2d::core::Rectangle* create_rect(const Goat2d::core::rect_data& parameters)
 		{
-			return new core::Rectangle(parameters,renderer);
+			return new Goat2d::core::Rectangle(parameters,renderer);
 		}
 		/*!
 		\brief create rectangle with outline. It doesn't require renderer, because its pointer is already stored
@@ -174,10 +174,10 @@ namespace framework
 		\param[in] outline_params outline width and color
 		\return pointer to Rectangle class
 		*/
-		inline core::Rectangle* create_outlined_rect(const core::rect_data& parameters,
-													 const core::outline_rect_data& outline_params)
+		inline Goat2d::core::Rectangle* create_outlined_rect(const Goat2d::core::rect_data& parameters,
+													 const Goat2d::core::outline_rect_data& outline_params)
 		{
-			return new core::Rectangle(parameters, outline_params, renderer);
+			return new Goat2d::core::Rectangle(parameters, outline_params, renderer);
 		}
 
 		/*!
@@ -185,9 +185,9 @@ namespace framework
 		\param[in] points positions of start and end
 		\return pointer to Line class
 		*/
-		inline core::Line* create_white_line(const core::begin_end& points)
+		inline Goat2d::core::Line* create_white_line(const Goat2d::core::begin_end& points)
 		{
-			return new core::Line(points, renderer);
+			return new Goat2d::core::Line(points, renderer);
 		}
 
 		/*!
@@ -196,9 +196,9 @@ namespace framework
 		\param[in] color color to fill line
 		\return pointer to Line class
 		*/
-		inline core::Line* create_colored_line(const core::begin_end& points, const core::Color& color)
+		inline Goat2d::core::Line* create_colored_line(const Goat2d::core::begin_end& points, const Goat2d::core::Color& color)
 		{
-			return new core::Line(points, color, renderer);
+			return new Goat2d::core::Line(points, color, renderer);
 		}
 
 		/*!
@@ -206,9 +206,9 @@ namespace framework
 		\param[in] point position
 		\return pointer to Point class
 		*/
-		inline core::Point* create_white_point(const core::Vector2f& point)
+		inline Goat2d::core::Point* create_white_point(const Goat2d::core::Vector2f& point)
 		{
-			return new core::Point(point, renderer);
+			return new Goat2d::core::Point(point, renderer);
 		}
 
 		/*!
@@ -217,9 +217,9 @@ namespace framework
 		\param[in] color color to fill Point
 		\return pointer to Point class
 		*/
-		inline core::Point* create_colored_point(const core::Vector2f& point, const core::Color& color)
+		inline Goat2d::core::Point* create_colored_point(const Goat2d::core::Vector2f& point, const Goat2d::core::Color& color)
 		{
-			return new core::Point(point, color, renderer);
+			return new Goat2d::core::Point(point, color, renderer);
 		}
 
 	#ifdef USE_SDL_TTF
@@ -231,9 +231,9 @@ namespace framework
 		\return pointer to Text object
 		\warning you can use this function only if USE_SDL_TTF is defined in core/Definitors.h
 		*/
-		inline core::Text* create_white_text(const std::string& text,const core::Vector2f& pos, core::Font* font)
+		inline Goat2d::core::Text* create_white_text(const std::string& text,const Goat2d::core::Vector2f& pos, Goat2d::core::Font* font)
 		{
-			return new core::Text(*font, text, pos, renderer);
+			return new Goat2d::core::Text(*font, text, pos, renderer);
 		}
 
 		/*!
@@ -245,9 +245,9 @@ namespace framework
 		\return pointer to Text object
 		\warning you can use this function only if USE_SDL_TTF is defined in core/Definitors.h
 		*/
-		inline core::Text* create_colored_text(const std::string& text, const core::Vector2f& pos, const core::Color& color, core::Font* font)
+		inline Goat2d::core::Text* create_colored_text(const std::string& text, const Goat2d::core::Vector2f& pos, const Goat2d::core::Color& color, Goat2d::core::Font* font)
 		{
-			return new core::Text(*font, text, pos, renderer, color);
+			return new Goat2d::core::Text(*font, text, pos, renderer, color);
 		}
 	#endif
 		//! set next scene's id
