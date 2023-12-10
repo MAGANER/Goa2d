@@ -11,31 +11,17 @@ Textures and Texts are inhereted from this class just like any other one that ca
 #ifndef CHANGABLE_OBJECT_H
 #define CHANGABLE_OBJECT_H
 #include"DrawableObject.h"
+#include"FlipType.h"
 namespace Goat2d
 {
 namespace core
 {
-	/*
-	Note on flipping and rotation.
-	There is no sense in single point flipping,
-	so point class stays unchanged.
-	*/
-
-	//! overwrapper for flipping types of SDL
-	enum class FlipType :short
-	{
-		None = SDL_FLIP_NONE,
-		Horizontal = SDL_FLIP_HORIZONTAL,
-		Vertical = SDL_FLIP_VERTICAL,
-		Diagonal = Horizontal | Vertical
-	};
-
 	/*!
 	\brief Base class for drawable object that can be rotated, flipped, scaled.
 	\author MAGANER
 	\date 09.12.2023
 	*/
-	class ChangableObject: public DrawableObject
+	class TransformableObject: public DrawableObject
 	{
 	private:
 		//! object will be drawn rotated by this angle
@@ -44,9 +30,9 @@ namespace core
 		//! flip object. No flipping by default
 		FlipType flipping_type = FlipType::None;
 	protected:
-		ChangableObject(SDL_Renderer* renderer,
+		TransformableObject(SDL_Renderer* renderer,
 						double rotation_angle=0.0f,
-						FlipType flipping_type=FlipType::None):
+						FlipType flipping_type = FlipType::None) :
 			DrawableObject(renderer),
 			rotation_angle(rotation_angle),
 			flipping_type(flipping_type)
