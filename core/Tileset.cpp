@@ -69,7 +69,7 @@ void Tileset::split_tiles(const SDL_Point& size, const Vector2i& tile_size)
         curr_pos.y = curr_pos.y + tile_size.y;
     }
 }
-bool Tileset::draw(size_t tile_code, const Vector2i& pos)
+bool Tileset::draw(size_t tile_code, const Vector2i& pos,FlipType type)
 {
 
     if (tile_code > tiles.size())
@@ -83,12 +83,19 @@ bool Tileset::draw(size_t tile_code, const Vector2i& pos)
     {
         auto tile = tiles[tile_code];
         SDL_Rect render_quad = { .x = pos.x, .y = pos.y, .w = tile.w,.h = tile.h };
-        SDL_RenderCopy(renderer, texture, &tile, &render_quad);
+        SDL_RenderCopyEx(renderer,
+            texture,
+            &tile,
+            &render_quad,
+            0.0,
+            NULL,
+            (SDL_RendererFlip)type);
+        
     }
 
     return true;
 }
-bool Tileset::draw(size_t tile_code, const Vector2f& pos)
+bool Tileset::draw(size_t tile_code, const Vector2f& pos, FlipType type)
 {
     if (tile_code > tiles.size())
     {
@@ -101,7 +108,13 @@ bool Tileset::draw(size_t tile_code, const Vector2f& pos)
     {
         auto tile = tiles[tile_code];
         SDL_FRect render_quad = { .x = pos.x, .y = pos.y, .w = (float)tile.w,.h = (float)tile.h };
-        SDL_RenderCopyF(renderer, texture, &tile, &render_quad);
+        SDL_RenderCopyExF(renderer,
+            texture,
+            &tile,
+            &render_quad,
+            0.0,
+            NULL,
+            (SDL_RendererFlip)type);
     }
     return true;
 }

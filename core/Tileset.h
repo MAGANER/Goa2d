@@ -12,8 +12,7 @@
 #include"Vector.h"
 #include"core/ErrorLogger.h"
 #include"SDL_image.h"
-//#include"FlippingType.h"
-
+#include"FlipType.h"
 namespace Goat2d
 {
 namespace core
@@ -43,8 +42,9 @@ namespace core
 		~Tileset();
 
 		//! draw specific part of tilest and return true if it's ok, unless return false
-		bool draw(size_t tile_code, const Vector2i& pos);
-		bool draw(size_t tile_code, const Vector2f& pos);
+		bool draw(size_t tile_code, const Vector2i& pos, FlipType type = FlipType::None);
+		bool draw(size_t tile_code, const Vector2f& pos, FlipType type = FlipType::None);
+
 
 		bool is_ok()const { return ok; }
 		bool is_visible()const { return visible; }
