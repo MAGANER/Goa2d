@@ -14,7 +14,7 @@ of low-level primitive.
 
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
-#include"TransformableObject.h"
+#include"DrawableObject.h"
 #include"Color.h"
 #include<tuple>
 #include<utility>
@@ -35,7 +35,7 @@ namespace core
 	\author MAGANER
 	\date 10.09.2023
 	*/
-	class Rectangle :public TransformableObject
+	class Rectangle :public DrawableObject
 	{
 		//! contains position and size
 		SDL_FRect* fill_rect = nullptr; 
@@ -54,27 +54,19 @@ namespace core
 		\brief Creates rectangle without outline
 		\param[in] parameters tuple with position, size and its filling color
 		\param[in] renderer Window's renderer
-		\param[in] rotation_angle zero by default
-		\param[in] flipping_type none by default
 		*/
 		Rectangle(const rect_data& parameters,
-				  SDL_Renderer* renderer,
-				  double rotation_angle = 0.0f,
-				  FlipType flipping_type = FlipType::None);
+				  SDL_Renderer* renderer);
 
 		/*!
 		\brief create filled rect with outline
 		\param[in] parameters tuple with position, size and its filling color
 		\param[in] pair with outline width and its color
 		\param[in] renderer Window's renderer
-		\param[in] rotation_angle zero by default
-		\param[in] flipping_type none by default
 		*/
 		Rectangle(const rect_data& parameters,
 				  const outline_rect_data& outline_parameters,
-				  SDL_Renderer* renderer,
-				  double rotation_angle = 0.0f,
-				  FlipType flipping_type = FlipType::None);
+				  SDL_Renderer* renderer);
 
 		~Rectangle();
 

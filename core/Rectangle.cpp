@@ -2,9 +2,7 @@
 using namespace Goat2d::core;
 
 Rectangle::Rectangle(const rect_data& parameters,
-					 SDL_Renderer* renderer,
-					 double rotation_angle,
-					 FlipType flipping_type) :TransformableObject(renderer)
+					 SDL_Renderer* renderer) :DrawableObject(renderer)
 {
 	fill_rect = new SDL_FRect;
 
@@ -23,9 +21,7 @@ Rectangle::Rectangle(const rect_data& parameters,
 }
 Rectangle::Rectangle(const rect_data& parameters,
 					 const outline_rect_data& outline_parameters,
-					 SDL_Renderer* renderer,
-					 double rotation_angle,
-					 FlipType flipping_type) :TransformableObject(renderer)
+					 SDL_Renderer* renderer) :DrawableObject(renderer)
 {
 	fill_rect = new SDL_FRect;
 
